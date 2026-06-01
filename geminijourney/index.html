@@ -1,0 +1,922 @@
+<!DOCTYPE/>
+/ lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peak Trails Consulting — Your AI Journey with Google Gemini</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --nts-navy: #1a2744;
+  --g-blue:   #1a73e8;
+  --g-red:    #ea4335;
+  --g-yellow: #fbbc04;
+  --g-green:  #34a853;
+  --white:    #ffffff;
+  --off:      #f8f9fb;
+  --text:     #1e2022;
+  --muted:    #5f6368;
+  --border:   #e0e4ea;
+  --shadow:   0 4px 24px rgba(26,39,68,.10);
+  --shadow-lg:0 12px 48px rgba(26,39,68,.16);
+  --nav-h:    88px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: var(--nts-navy);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo img {
+  height: 72px;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,.72);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: var(--white);
+  background: rgba(255,255,255,.08);
+}
+
+.nav-links a.active {
+  color: var(--white);
+  background: rgba(255,255,255,.1);
+}
+
+.nav-cta a {
+  background: var(--g-blue);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 7px;
+  transition: background .15s, transform .15s;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.nav-cta a:hover {
+  background: #1557b0;
+  transform: translateY(-1px);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,.8);
+  border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--nts-navy);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding: 16px 20px 20px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .nav-menu.open { display: flex; }
+  .nav-links { flex-direction: column; align-items: flex-start; width: 100%; }
+  .nav-links a { width: 100%; padding: 10px 12px; }
+  .nav-cta { width: 100%; margin-top: 8px; }
+  .nav-cta a { display: block; text-align: center; padding: 10px 18px; margin-left: 0; }
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: fixed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(26,39,68,.92) 0%,
+    rgba(26,39,68,.80) 50%,
+    rgba(15,30,70,.70) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-bg-accents {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 85% 50%, rgba(26,115,232,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(52,168,83,.10) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-bar {
+  height: 6px;
+  background: linear-gradient(90deg,
+    var(--g-blue) 0%, var(--g-blue) 25%,
+    var(--g-red) 25%, var(--g-red) 50%,
+    var(--g-yellow) 50%, var(--g-yellow) 75%,
+    var(--g-green) 75%, var(--g-green) 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 40px 64px;
+  width: 100%;
+  flex: 1;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,115,232,.25);
+  border: 1px solid rgba(26,115,232,.4);
+  border-radius: 24px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a8c8f8;
+  margin-bottom: 24px;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #4fc3f7;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:.5; transform:scale(1.4); }
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(30px, 4.5vw, 54px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: #7cb9ff;
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,.65);
+  max-width: 560px;
+  line-height: 1.75;
+}
+
+/* ── SECTIONS ── */
+section { padding: 80px 40px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--g-blue);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--nts-navy);
+  margin-bottom: 16px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--g-blue);
+}
+
+.section-sub {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 640px;
+  line-height: 1.75;
+  margin-bottom: 48px;
+}
+
+/* ── JOURNEY GRAPHIC ── */
+#graphic { background: var(--off); }
+
+.graphic-wrap {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: var(--shadow);
+}
+
+/* ── STAGE CARDS ── */
+#stages { background: var(--white); padding-top: 48px; }
+
+.stages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.stage-card {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow .2s, transform .15s, border-color .2s;
+}
+
+.stage-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+  border-color: #c0cde8;
+}
+
+.stage-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  border-radius: 14px 0 0 14px;
+}
+
+.stage-card:nth-child(1)::before  { background: var(--g-blue); }
+.stage-card:nth-child(2)::before  { background: var(--g-green); }
+.stage-card:nth-child(3)::before  { background: var(--g-red); }
+.stage-card:nth-child(4)::before  { background: var(--g-yellow); }
+.stage-card:nth-child(5)::before  { background: var(--g-blue); }
+.stage-card:nth-child(6)::before  { background: var(--g-green); }
+.stage-card:nth-child(7)::before  { background: var(--g-red); }
+.stage-card:nth-child(8)::before  { background: var(--g-yellow); }
+.stage-card:nth-child(9)::before  { background: var(--g-blue); }
+
+.stage-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.stage-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--nts-navy);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.stage-card p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.stage-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--g-blue);
+  text-decoration: none;
+  transition: gap .2s;
+}
+
+.stage-card a:hover { gap: 10px; }
+
+.stage-card.stage-10 {
+  grid-column: 1 / -1;
+  background: #FFFBF0;
+  border-color: rgba(186,117,23,.25);
+}
+
+.stage-card.stage-10::before {
+  background: linear-gradient(180deg, #4285F4, #7C4DFF, #E040FB, #BA7517);
+}
+
+.stage-card.stage-10 h4 { color: #412402; }
+.stage-card.stage-10 .stage-num { color: #BA7517; }
+.stage-card.stage-10 p { color: #633806; }
+
+.stage-10-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.stage-10-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.stage-10-check {
+  width: 22px; height: 22px;
+  background: rgba(186,117,23,.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 11px;
+  color: #BA7517;
+  font-weight: 700;
+}
+
+.stage-10-text strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #412402;
+  margin-bottom: 3px;
+}
+
+.stage-10-text span {
+  font-size: 12px;
+  color: #854F0B;
+  line-height: 1.55;
+}
+
+/* ── CTA ── */
+#cta {
+  padding: 80px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center 60%;
+  background-attachment: fixed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.cta-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(13,31,60,.92) 0%,
+    rgba(26,39,68,.82) 50%,
+    rgba(15,52,96,.75) 100%
+  );
+  pointer-events: none;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#cta h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+#cta p {
+  font-size: 16px;
+  color: rgba(255,255,255,.6);
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+
+.btn-primary {
+  background: var(--g-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  box-shadow: 0 2px 12px rgba(26,115,232,.4);
+}
+
+.btn-primary:hover {
+  background: #1557b0;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(26,115,232,.5);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #0d1520;
+  color: rgba(255,255,255,.35);
+  padding: 0 40px 28px;
+  font-size: 13px;
+}
+
+.footer-stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--g-blue) 0%, var(--g-blue) 25%,
+    var(--g-red) 25%, var(--g-red) 50%,
+    var(--g-yellow) 50%, var(--g-yellow) 75%,
+    var(--g-green) 75%, var(--g-green) 100%);
+  margin-bottom: 48px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.footer-brand img {
+  height: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.footer-brand p {
+  font-size: 12px;
+  color: rgba(255,255,255,.35);
+  line-height: 1.7;
+  max-width: 240px;
+}
+
+.footer-col h5 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 14px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col ul a {
+  font-size: 13px;
+  color: rgba(255,255,255,.4);
+  text-decoration: none;
+  transition: color .15s;
+}
+
+.footer-col ul a:hover { color: rgba(255,255,255,.8); }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,.25);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  section { padding: 56px 20px; }
+  .hero-inner { padding: 40px 20px 48px; }
+  .stages-grid { grid-template-columns: 1fr; }
+  .stage-card.stage-10 { grid-column: 1; }
+  .stage-10-inner { grid-template-columns: 1fr; }
+  .graphic-wrap { padding: 20px; }
+  #cta { padding: 56px 20px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">
+      <img src="../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+    </a>
+    <div class="nav-toggle" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="../">Home</a></li>
+        <li><a href="../geminijourney/" class="active">Gemini Journey</a></li>
+        <li><a href="../discovery/">Discovery &amp; Roadmap</a></li>
+        <li><a href="../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../ourpartners/">Our Partners</a></li>
+        <li><a href="../peakinsights/">Peak Insights</a></li>
+        <li class="nav-cta"><a href="../contactus/">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-bg-accents"></div>
+  <div class="hero-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Google Gemini Enterprise</div>
+    <h1>Your AI Journey with<br><em>Google Gemini</em></h1>
+    <p class="hero-sub">A proven path from foundation to full capability. Every stage builds on what came before — the investments you make early compound at every stage that follows.</p>
+  </div>
+</div>
+
+<!-- ── GRAPHIC ── -->
+<section id="graphic">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Complete Path</div>
+    <h2 class="section-title">Ten stages from <em>first step</em> to full capability</h2>
+    <p class="section-sub">Most organizations start at Stage 1 and go as far as their goals require. Each stage is achievable — nothing requires a data science team or a complete platform replacement.</p>
+
+    <div class="graphic-wrap">
+      <svg width="100%" viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+          <linearGradient id="gg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%"   stop-color="#4285F4"/>
+            <stop offset="40%"  stop-color="#7C4DFF"/>
+            <stop offset="75%"  stop-color="#A855F7"/>
+            <stop offset="100%" stop-color="#E040FB"/>
+          </linearGradient>
+          <linearGradient id="g10" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%"   stop-color="#4285F4" stop-opacity="0.12"/>
+            <stop offset="50%"  stop-color="#7C4DFF" stop-opacity="0.14"/>
+            <stop offset="100%" stop-color="#E040FB" stop-opacity="0.12"/>
+          </linearGradient>
+        </defs>
+        <rect x="20" y="8" width="640" height="3" rx="1.5" fill="url(#gg)"/>
+        <text x="340" y="26" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="15" font-weight="600" fill="#1A2B2A">Your AI Journey with Google Gemini</text>
+        <text x="340" y="46" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">A proven path from foundation to full capability</text>
+        <path d="M30 18 L33 24 L30 30 L27 24 Z" fill="url(#gg)" opacity="0.8"/>
+        <path d="M650 18 L653 24 L650 30 L647 24 Z" fill="url(#gg)" opacity="0.8"/>
+        <!-- Stage 1 -->
+        <rect x="20" y="58" width="112" height="58" rx="6" fill="#4285F4" fill-opacity="0.08" stroke="#4285F4" stroke-width="0.8" stroke-opacity="0.5"/>
+        <text x="76" y="72" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#4285F4">01</text>
+        <text x="76" y="87" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1A2B2A">Landing Zone</text>
+        <text x="76" y="103" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#6B7C7B">Secure GCP foundation</text>
+        <line x1="133" y1="87" x2="145" y2="87" stroke="#4285F4" stroke-width="1" opacity="0.4" marker-end="url(#arrow)"/>
+        <!-- Stage 2 -->
+        <rect x="147" y="58" width="112" height="58" rx="6" fill="#5570F5" fill-opacity="0.08" stroke="#5570F5" stroke-width="0.8" stroke-opacity="0.5"/>
+        <text x="203" y="72" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#5570F5">02</text>
+        <text x="203" y="87" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1A2B2A">Use Case Roadmap</text>
+        <text x="203" y="103" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#6B7C7B">Prioritize the wins</text>
+        <line x1="260" y1="87" x2="272" y2="87" stroke="#5570F5" stroke-width="1" opacity="0.4" marker-end="url(#arrow)"/>
+        <!-- Stage 3 -->
+        <rect x="274" y="58" width="112" height="58" rx="6" fill="#6C4DFF" fill-opacity="0.08" stroke="#6C4DFF" stroke-width="0.8" stroke-opacity="0.5"/>
+        <text x="330" y="72" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#6C4DFF">03</text>
+        <text x="330" y="87" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1A2B2A">Data Preparation</text>
+        <text x="330" y="103" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#6B7C7B">Clean, accessible data</text>
+        <line x1="387" y1="87" x2="399" y2="87" stroke="#6C4DFF" stroke-width="1" opacity="0.4" marker-end="url(#arrow)"/>
+        <!-- Stage 4 -->
+        <rect x="401" y="58" width="112" height="58" rx="6" fill="#8855F0" fill-opacity="0.08" stroke="#8855F0" stroke-width="0.8" stroke-opacity="0.5"/>
+        <text x="457" y="72" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#8855F0">04</text>
+        <text x="457" y="87" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1A2B2A">MCP Integration</text>
+        <text x="457" y="103" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#6B7C7B">Connect data silos</text>
+        <line x1="514" y1="87" x2="526" y2="87" stroke="#8855F0" stroke-width="1" opacity="0.4" marker-end="url(#arrow)"/>
+        <!-- Stage 5 -->
+        <rect x="528" y="58" width="132" height="58" rx="6" fill="#A040F0" fill-opacity="0.08" stroke="#A040F0" stroke-width="0.8" stroke-opacity="0.5"/>
+        <text x="594" y="72" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#A040F0">05</text>
+        <text x="594" y="87" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1A2B2A">NotebookLM</text>
+        <text x="594" y="103" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#6B7C7B">Test prompts on data</text>
+        <line x1="594" y1="117" x2="594" y2="139" stroke="#A040F0" stroke-width="1" opacity="0.4" marker-end="url(#arrow)"/>
+        <!-- Stage 6 -->
+        <rect x="528" y="140" width="132" height="58" rx="6" fill="#B040F0" fill-opacity="0.08" stroke="#B040F0" stroke-width="0.8" stroke-opacity="0.5"/>
+        <text x="594" y="154" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#B040F0">06</text>
+        <text x="594" y="169" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1A2B2A">Gemini Agents</text>
+        <text x="594" y="184" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#6B7C7B">UI-built, no code</text>
+        <line x1="527" y1="169" x2="515" y2="169" stroke="#B040F0" stroke-width="1" opacity="0.4" marker-end="url(#arrow)"/>
+        <!-- Stage 7 -->
+        <rect x="401" y="140" width="112" height="58" rx="6" fill="#C030E8" fill-opacity="0.08" stroke="#C030E8" stroke-width="0.8" stroke-opacity="0.5"/>
+        <text x="457" y="154" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#C030E8">07</text>
+        <text x="457" y="169" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1A2B2A">Agentic Workflows</text>
+        <text x="457" y="184" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#6B7C7B">Orchestrated agents</text>
+        <line x1="400" y1="169" x2="388" y2="169" stroke="#C030E8" stroke-width="1" opacity="0.4" marker-end="url(#arrow)"/>
+        <!-- Stage 8 -->
+        <rect x="274" y="140" width="112" height="58" rx="6" fill="#D030E0" fill-opacity="0.08" stroke="#D030E0" stroke-width="0.8" stroke-opacity="0.5"/>
+        <text x="330" y="154" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#D030E0">08</text>
+        <text x="330" y="169" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1A2B2A">Agent Ecosystem</text>
+        <text x="330" y="184" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#6B7C7B">A2A + Marketplace</text>
+        <line x1="273" y1="169" x2="261" y2="169" stroke="#D030E0" stroke-width="1" opacity="0.4" marker-end="url(#arrow)"/>
+        <!-- Stage 9 -->
+        <rect x="20" y="140" width="238" height="58" rx="6" fill="#E040FB" fill-opacity="0.07" stroke="#E040FB" stroke-width="0.8" stroke-opacity="0.5"/>
+        <text x="139" y="154" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#D030E8">09</text>
+        <text x="139" y="169" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1A2B2A">Purpose-Built Agentic Solutions</text>
+        <text x="139" y="184" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#6B7C7B">Scoped by Peak Trails, built by partners</text>
+        <!-- Feed arrows -->
+        <line x1="76" y1="199" x2="76" y2="248" stroke="#7C4DFF" stroke-width="0.8" stroke-opacity="0.35" marker-end="url(#arrow)"/>
+        <line x1="203" y1="199" x2="203" y2="248" stroke="#7C4DFF" stroke-width="0.8" stroke-opacity="0.35" marker-end="url(#arrow)"/>
+        <line x1="330" y1="199" x2="330" y2="248" stroke="#7C4DFF" stroke-width="0.8" stroke-opacity="0.35" marker-end="url(#arrow)"/>
+        <line x1="457" y1="199" x2="457" y2="248" stroke="#7C4DFF" stroke-width="0.8" stroke-opacity="0.35" marker-end="url(#arrow)"/>
+        <line x1="594" y1="199" x2="594" y2="248" stroke="#7C4DFF" stroke-width="0.8" stroke-opacity="0.35" marker-end="url(#arrow)"/>
+        <!-- Stage 10 -->
+        <rect x="20" y="250" width="640" height="60" rx="8" fill="url(#g10)" stroke="url(#gg)" stroke-width="1.5"/>
+        <text x="340" y="265" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#7C4DFF">10</text>
+        <text x="340" y="281" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#1A2B2A">Feedback, Reporting and Continuous Improvement</text>
+        <text x="340" y="298" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#6B7C7B">Collects signal across every stage · Measures outcomes · Feeds improvements back into the roadmap</text>
+        <rect x="20" y="318" width="640" height="3" rx="1.5" fill="url(#gg)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── STAGE CARDS ── -->
+<section id="stages">
+  <div class="section-inner">
+    <div class="section-eyebrow">Each Stage Explained</div>
+    <h2 class="section-title">What happens at each stage —<br><em>and what you get</em></h2>
+    <p class="section-sub">Every stage is designed to deliver value on its own. You do not need to commit to the full journey to start — begin where you are and build from there.</p>
+
+    <div class="stages-grid">
+
+      <div class="stage-card">
+        <div class="stage-num">Stage 01</div>
+        <h4>Landing Zone</h4>
+        <p>We define the complete scope of your Google Cloud foundation — security requirements, governance policies, network architecture, and deployment standards. Your implementation partner builds from a fully specified blueprint.</p>
+      </div>
+
+      <div class="stage-card">
+        <div class="stage-num">Stage 02</div>
+        <h4>Use Case Roadmap</h4>
+        <p>We work with your teams to identify and prioritize the AI opportunities that will deliver real value. You get a clear, sequenced roadmap tied to your actual business goals — not a generic list of AI possibilities.</p>
+      </div>
+
+      <div class="stage-card">
+        <div class="stage-num">Stage 03</div>
+        <h4>Data Preparation</h4>
+        <p>We assess and prepare your data so Gemini can actually use it — clean, accessible, and connected to the right systems. Your data is ready to power AI rather than sitting in silos that no agent can reach.</p>
+      </div>
+
+      <div class="stage-card">
+        <div class="stage-num">Stage 04</div>
+        <h4>MCP Integration</h4>
+        <p>We scope the connections between Gemini and your existing enterprise systems — your ticketing platform, your facilities system, your HR tools. You get a blueprint for how your platforms become AI-accessible without rebuilding anything.</p>
+      </div>
+
+      <div class="stage-card">
+        <div class="stage-num">Stage 05</div>
+        <h4>NotebookLM</h4>
+        <p>We use Google's NotebookLM to test how Gemini interacts with your actual data — low risk, no code, immediate insight. You see what Gemini can and cannot do with your information before committing to a build.</p>
+      </div>
+
+      <div class="stage-card">
+        <div class="stage-num">Stage 06</div>
+        <h4>Gemini Agents</h4>
+        <p>We configure purpose-built agents directly in the Gemini Enterprise interface — no custom development required. You get working AI agents your staff can use immediately, built on the platform you already own.</p>
+      </div>
+
+      <div class="stage-card">
+        <div class="stage-num">Stage 07</div>
+        <h4>Agentic Workflows</h4>
+        <p>We design and configure multi-step workflows where agents hand off tasks to each other automatically. You get orchestrated AI processes that handle complex, multi-stage work without human intervention at every step.</p>
+      </div>
+
+      <div class="stage-card">
+        <div class="stage-num">Stage 08</div>
+        <h4>Agent Ecosystem</h4>
+        <p>We connect your agents to each other and to Google's Agent Marketplace — accessing pre-built solutions alongside your custom ones. Your agents collaborate rather than operate in isolation, and you gain access to a growing catalog of ready-to-deploy solutions.</p>
+      </div>
+
+      <div class="stage-card">
+        <div class="stage-num">Stage 09</div>
+        <h4>Purpose-Built Agentic Solutions</h4>
+        <p>We scope and prototype the complex solutions your organization needs, then connect you with the right development partner to build and maintain them at scale. You get a fully defined solution and a qualified partner to deliver it.</p>
+        <a href="../agenticframework/">Learn more about Purpose-Built Solutions →</a>
+      </div>
+
+      <div class="stage-card stage-10">
+        <div class="stage-num">Stage 10 — The Foundation Layer</div>
+        <h4>Feedback, Reporting and Continuous Improvement</h4>
+        <p style="margin-bottom:24px;">This stage does not come last — it runs underneath every other stage from the moment you start. We establish the measurement framework that collects signal across your entire AI footprint, tracks what is working, and feeds improvements back into the roadmap.</p>
+        <div class="stage-10-inner">
+          <div class="stage-10-item">
+            <div class="stage-10-check">✓</div>
+            <div class="stage-10-text">
+              <strong>AI Readiness Assessment</strong>
+              <span>Baseline measurement of your organization's readiness before you begin</span>
+            </div>
+          </div>
+          <div class="stage-10-item">
+            <div class="stage-10-check">✓</div>
+            <div class="stage-10-text">
+              <strong>Outcome Tracking</strong>
+              <span>Dashboards showing deflection rates, time savings, and staff impact at every stage</span>
+            </div>
+          </div>
+          <div class="stage-10-item">
+            <div class="stage-10-check">✓</div>
+            <div class="stage-10-text">
+              <strong>Continuous Roadmap</strong>
+              <span>Quarterly reviews that keep your AI investment aligned with organizational priorities</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta">
+  <div class="cta-bg-img"></div>
+  <div class="cta-bg-overlay"></div>
+  <div class="cta-inner">
+    <h2>Ready to start<br>your Gemini journey?</h2>
+    <p>Most organizations begin with a discovery engagement — we identify where you are on the journey, which stages apply to your situation, and what the first two use cases should be.</p>
+    <a href="../contactus/" class="btn-primary">Schedule a Conversation →</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-stripe"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+      <p>Google Cloud Partner helping SLED organizations activate Gemini Enterprise — from foundation to full capability.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../discovery/">Discovery &amp; Roadmap</a></li>
+        <li><a href="../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../ourpartners/">Our Partners</a></li>
+        <li><a href="../peakinsights/">Peak Insights</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:info@peaktrailsconsulting.com">info@peaktrailsconsulting.com</a></li>
+        <li><a href="../contactus/">Schedule a Conversation</a></li>
+        <li><span style="color:rgba(255,255,255,.35);">Denver, CO</span></li>
+        <li>
+          <a href="https://www.linkedin.com/company/peak-trails-consulting-llc" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;">
+            <img src="../assets/linedin.png" alt="LinkedIn" style="height:20px;filter:brightness(0) invert(1);opacity:.6;">
+            <span>LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Peak Trails Consulting LLC · Google Cloud Partner · © 2026</span>
+    <span>Denver, CO · SLED AI Specialist</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      en.target.style.opacity = '1';
+      en.target.style.transform = 'translateY(0)';
+      obs.unobserve(en.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.stage-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity .4s ease, transform .4s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</>

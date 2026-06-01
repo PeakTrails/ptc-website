@@ -1,0 +1,635 @@
+<!DOCTYPE/>
+/ lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peak Trails Consulting — Our Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --nts-navy: #1a2744;
+  --g-blue:   #1a73e8;
+  --g-red:    #ea4335;
+  --g-yellow: #fbbc04;
+  --g-green:  #34a853;
+  --white:    #ffffff;
+  --off:      #f8f9fb;
+  --text:     #1e2022;
+  --muted:    #5f6368;
+  --border:   #e0e4ea;
+  --shadow:   0 4px 24px rgba(26,39,68,.10);
+  --shadow-lg:0 12px 48px rgba(26,39,68,.16);
+  --nav-h:    88px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: var(--nts-navy);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo img { height: 72px; display: block; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,.72);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,.08); }
+.nav-links a.active { color: var(--white); background: rgba(255,255,255,.1); }
+
+.nav-cta a {
+  background: var(--g-blue);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 7px;
+  transition: background .15s, transform .15s;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.nav-cta a:hover { background: #1557b0; transform: translateY(-1px); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px; height: 2px;
+  background: rgba(255,255,255,.8);
+  border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--nts-navy);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding: 16px 20px 20px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .nav-menu.open { display: flex; }
+  .nav-links { flex-direction: column; align-items: flex-start; width: 100%; }
+  .nav-links a { width: 100%; padding: 10px 12px; }
+  .nav-cta { width: 100%; margin-top: 8px; }
+  .nav-cta a { display: block; text-align: center; padding: 10px 18px; margin-left: 0; }
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: fixed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,39,68,.92) 0%, rgba(26,39,68,.80) 50%, rgba(15,30,70,.70) 100%);
+  pointer-events: none;
+}
+
+.hero-bg-accents {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 85% 50%, rgba(26,115,232,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(52,168,83,.10) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-bar {
+  height: 6px;
+  background: linear-gradient(90deg,
+    var(--g-blue) 0%, var(--g-blue) 25%,
+    var(--g-red) 25%, var(--g-red) 50%,
+    var(--g-yellow) 50%, var(--g-yellow) 75%,
+    var(--g-green) 75%, var(--g-green) 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 40px 64px;
+  width: 100%;
+  flex: 1;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,115,232,.25);
+  border: 1px solid rgba(26,115,232,.4);
+  border-radius: 24px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a8c8f8;
+  margin-bottom: 24px;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #4fc3f7;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:.5; transform:scale(1.4); }
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(30px, 4.5vw, 54px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 680px;
+}
+
+.hero h1 em { font-style: italic; color: #7cb9ff; }
+
+.hero-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,.65);
+  max-width: 560px;
+  line-height: 1.75;
+}
+
+/* ── SECTIONS ── */
+section { padding: 80px 40px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--g-blue); margin-bottom: 12px; }
+.section-title { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 4vw, 40px); font-weight: 400; line-height: 1.15; color: var(--nts-navy); margin-bottom: 16px; }
+.section-title em { font-style: italic; color: var(--g-blue); }
+.section-sub { font-size: 16px; color: var(--muted); max-width: 640px; line-height: 1.75; margin-bottom: 56px; }
+
+/* ── PARTNER CARDS ── */
+#partners { background: var(--off); }
+
+.partner-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 32px;
+  transition: box-shadow .2s, transform .15s;
+}
+
+.partner-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.partner-card:last-child { margin-bottom: 0; }
+
+.partner-header {
+  padding: 40px 48px 32px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.partner-logo-wrap {
+  background: var(--white);
+  border: 1.5px solid #c8cdd5;
+  border-radius: 12px;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 90px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.partner-logo-wrap img {
+  display: block;
+  max-width: 100%;
+  max-height: 52px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.partner-header-text { flex: 1; }
+
+.partner-name { font-family: 'DM Serif Display', serif; font-size: 28px; font-weight: 400; color: var(--nts-navy); margin-bottom: 6px; line-height: 1.2; }
+.partner-type { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+
+.partner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  white-space: nowrap;
+  margin-top: 12px;
+}
+
+.partner-badge.google-badge { background: rgba(26,115,232,.1); color: #1557b0; border: 1px solid rgba(26,115,232,.2); }
+.partner-badge.nts-badge    { background: rgba(52,168,83,.1); color: #1a5c38; border: 1px solid rgba(52,168,83,.2); }
+
+.partner-body { padding: 40px 48px 48px; }
+
+.partner-desc { font-size: 15px; color: var(--text); line-height: 1.75; margin-bottom: 24px; }
+
+.partner-points { list-style: none; display: flex; flex-direction: column; gap: 12px; padding-bottom: 8px; }
+
+.partner-point { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--text); line-height: 1.6; }
+
+.point-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+.point-dot.blue  { background: var(--g-blue); }
+.point-dot.green { background: var(--g-green); }
+
+/* ── HOW WE WORK TOGETHER ── */
+#together { background: var(--white); }
+
+.together-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.together-card {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: box-shadow .2s, transform .15s;
+}
+
+.together-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+
+.together-step { width: 40px; height: 40px; border-radius: 50%; background: var(--nts-navy); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; margin: 0 auto 16px; }
+.together-card h4 { font-size: 15px; font-weight: 700; color: var(--nts-navy); margin-bottom: 10px; }
+.together-card p  { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* ── CTA ── */
+#cta {
+  padding: 80px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center 60%;
+  background-attachment: fixed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.cta-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13,31,60,.92) 0%, rgba(26,39,68,.82) 50%, rgba(15,52,96,.75) 100%);
+  pointer-events: none;
+}
+
+.cta-inner { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
+
+#cta h2 { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 4vw, 42px); font-weight: 400; color: var(--white); line-height: 1.15; margin-bottom: 16px; }
+#cta p  { font-size: 16px; color: rgba(255,255,255,.6); margin-bottom: 36px; line-height: 1.7; }
+
+.btn-primary {
+  background: var(--g-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  box-shadow: 0 2px 12px rgba(26,115,232,.4);
+}
+.btn-primary:hover { background: #1557b0; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,115,232,.5); }
+
+/* ── FOOTER ── */
+footer {
+  background: #0d1520;
+  color: rgba(255,255,255,.35);
+  padding: 0 40px 28px;
+  font-size: 13px;
+}
+
+.footer-stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--g-blue) 0%, var(--g-blue) 25%,
+    var(--g-red) 25%, var(--g-red) 50%,
+    var(--g-yellow) 50%, var(--g-yellow) 75%,
+    var(--g-green) 75%, var(--g-green) 100%);
+  margin-bottom: 48px;
+}
+
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.footer-brand img { height: 48px; margin-bottom: 16px; display: block; }
+.footer-brand p   { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.7; max-width: 240px; }
+.footer-col h5    { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px; }
+.footer-col ul    { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a  { font-size: 13px; color: rgba(255,255,255,.4); text-decoration: none; transition: color .15s; }
+.footer-col ul a:hover { color: rgba(255,255,255,.8); }
+
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255,255,255,.25); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  section { padding: 56px 20px; }
+  .hero-inner { padding: 40px 20px 48px; }
+  .partner-header { padding: 28px 24px 24px; flex-direction: column; gap: 16px; }
+  .partner-body { padding: 24px; }
+  .together-grid { grid-template-columns: 1fr; }
+  #cta { padding: 56px 20px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">
+      <img src="../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+    </a>
+    <div class="nav-toggle" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="../">Home</a></li>
+        <li><a href="../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../discovery/">Discovery &amp; Roadmap</a></li>
+        <li><a href="../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../ourpartners/" class="active">Our Partners</a></li>
+        <li><a href="../peakinsights/">Peak Insights</a></li>
+        <li class="nav-cta"><a href="../contactus/">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-bg-accents"></div>
+  <div class="hero-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Partner Ecosystem</div>
+    <h1>Built on the right<br><em>partnerships.</em></h1>
+    <p class="hero-sub">Peak Trails works within a carefully selected partner ecosystem — bringing together the platform, the sales channel, and the technical capability that SLED clients need to succeed with Google AI.</p>
+  </div>
+</div>
+
+<!-- ── PARTNER CARDS ── -->
+<section id="partners">
+  <div class="section-inner">
+    <div class="section-eyebrow">Our Partners</div>
+    <h2 class="section-title">Two partnerships that<br><em>open doors</em> for clients</h2>
+    <p class="section-sub">Every client engagement runs through a partner structure that combines Google's platform depth, NTS's procurement relationships, and Peak Trails' technical enablement capability.</p>
+
+    <!-- Google -->
+    <div class="partner-card">
+      <div class="partner-header">
+        <div class="partner-logo-wrap">
+          <img src="../assets/logo_googleCloud.png" alt="Google Cloud">
+        </div>
+        <div class="partner-header-text">
+          <div class="partner-type">Platform Partner</div>
+          <div class="partner-name">Google Cloud</div>
+          <div class="partner-badge google-badge">Google Cloud Partner</div>
+        </div>
+      </div>
+      <div class="partner-body">
+        <p class="partner-desc">Peak Trails is an official Google Cloud Partner specializing in Gemini Enterprise enablement for Google Public Sector clients. We work alongside Google's SLED account teams to help government agencies, school districts, universities, and nonprofits activate their Google AI investment and realize its full potential.</p>
+        <ul class="partner-points">
+          <li class="partner-point"><div class="point-dot blue"></div><span>Google Cloud Partner — enrolled in Google Partner Advantage</span></li>
+          <li class="partner-point"><div class="point-dot blue"></div><span>Gemini Enterprise enablement focus — activation, training, use case discovery, and agent configuration</span></li>
+          <li class="partner-point"><div class="point-dot blue"></div><span>Google Public Sector alignment — supporting GPS account teams across government and education markets</span></li>
+          <li class="partner-point"><div class="point-dot blue"></div><span>Active co-sell relationships with Google SLED account representatives in Texas, California, Oklahoma, and New York</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- NTS -->
+    <div class="partner-card">
+      <div class="partner-header">
+        <div class="partner-logo-wrap">
+          <img src="../assets/ntscalogo.png" alt="New Tech Solutions">
+        </div>
+        <div class="partner-header-text">
+          <div class="partner-type">Sales Channel Partner</div>
+          <div class="partner-name">New Tech Solutions</div>
+          <div class="partner-badge nts-badge">Google Cloud VAR · SLED Specialist</div>
+        </div>
+      </div>
+      <div class="partner-body">
+        <p class="partner-desc">New Tech Solutions is a Google Cloud-committed value added reseller with nearly 30 years serving government and education clients across the United States. NTS brings the procurement infrastructure, the contract vehicles, and the established client relationships. Peak Trails serves as the AI practice — providing the Gemini enablement expertise and technical pre-sales capability that helps NTS clients move from license to value.</p>
+        <ul class="partner-points">
+          <li class="partner-point"><div class="point-dot green"></div><span>Nearly 30 years serving state and local government and education markets</span></li>
+          <li class="partner-point"><div class="point-dot green"></div><span>Google Cloud-committed VAR — Gemini Enterprise licensing and procurement</span></li>
+          <li class="partner-point"><div class="point-dot green"></div><span>Florida state preferred vendor status — enabling no-bid procurement for qualifying clients</span></li>
+          <li class="partner-point"><div class="point-dot green"></div><span>Peak Trails provides the AI architecture, training, and enablement that NTS clients need to activate their investment</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── HOW WE WORK TOGETHER ── -->
+<section id="together">
+  <div class="section-inner">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-title">From introduction<br>to <em>activation</em></h2>
+    <p class="section-sub">The partner structure is designed to make engaging easy for SLED clients — established relationships, streamlined procurement, and senior technical expertise from day one.</p>
+
+    <div class="together-grid">
+      <div class="together-card">
+        <div class="together-step">1</div>
+        <h4>Google or NTS Introduction</h4>
+        <p>A Google Public Sector account rep or New Tech Solutions identifies an organization that has purchased Gemini Enterprise and needs activation support. Peak Trails is brought in as the technical enablement partner.</p>
+      </div>
+      <div class="together-card">
+        <div class="together-step">2</div>
+        <h4>Discovery and Scoping</h4>
+        <p>Peak Trails conducts the AI Discovery engagement — assessing the organization's readiness, identifying use cases, and delivering a prioritized roadmap. NTS handles the commercial and procurement aspects.</p>
+      </div>
+      <div class="together-card">
+        <div class="together-step">3</div>
+        <h4>Activation and Enablement</h4>
+        <p>Peak Trails activates the Gemini environment, trains staff, configures the first agents, and establishes governance. The client moves from a purchased license to a working AI capability.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta">
+  <div class="cta-bg-img"></div>
+  <div class="cta-bg-overlay"></div>
+  <div class="cta-inner">
+    <h2>Ready to start<br>the conversation?</h2>
+    <p>Whether you came to us through Google, NTS, or found us directly — the first conversation is the same. Thirty minutes, no pitch, honest assessment of where to start.</p>
+    <a href="../contactus/" class="btn-primary">Schedule a Conversation →</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-stripe"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+      <p>Google Cloud Partner helping SLED organizations activate Gemini Enterprise — from foundation to full capability.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../discovery/">Discovery &amp; Roadmap</a></li>
+        <li><a href="../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../ourpartners/">Our Partners</a></li>
+        <li><a href="../peakinsights/">Peak Insights</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:info@peaktrailsconsulting.com">info@peaktrailsconsulting.com</a></li>
+        <li><a href="../contactus/">Schedule a Conversation</a></li>
+        <li><span style="color:rgba(255,255,255,.35);">Denver, CO</span></li>
+        <li>
+          <a href="https://www.linkedin.com/company/peak-trails-consulting-llc" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;">
+            <img src="../assets/linedin.png" alt="LinkedIn" style="height:20px;filter:brightness(0) invert(1);opacity:.6;">
+            <span>LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Peak Trails Consulting LLC · Google Cloud Partner · © 2026</span>
+    <span>Denver, CO · SLED AI Specialist</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      en.target.style.opacity = '1';
+      en.target.style.transform = 'translateY(0)';
+      obs.unobserve(en.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.partner-card, .together-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity .4s ease, transform .4s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</>

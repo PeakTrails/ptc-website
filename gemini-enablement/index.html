@@ -1,0 +1,1074 @@
+<!DOCTYPE/>
+/ lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemini Enterprise Enablement — Peak Trails Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --nts-navy: #1a2744;
+      --g-blue:   #1a73e8;
+      --g-red:    #ea4335;
+      --g-yellow: #fbbc04;
+      --g-green:  #34a853;
+      --teal:     #028090;
+      --teal-light:#03a8bc;
+      --white:    #ffffff;
+      --off:      #f8f9fb;
+      --text:     #1e2022;
+      --muted:    #5f6368;
+      --border:   #e0e4ea;
+      --shadow:   0 4px 24px rgba(26,39,68,.10);
+      --shadow-lg:0 12px 48px rgba(26,39,68,.16);
+      --radius:   10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── BACK LINK ── */
+    .back-bar {
+      background: #0d1520;
+      padding: 10px 40px;
+      display: flex;
+      align-items: center;
+    }
+    .back-bar a {
+      font-size: 13px;
+      color: rgba(255,255,255,.45);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color .2s;
+    }
+    .back-bar a:hover { color: rgba(255,255,255,.8); }
+
+    /* ── HERO ── */
+    .hero {
+      color: var(--white);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('../assets/mountain-bg.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      background-attachment: fixed;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,39,68,.92) 0%, rgba(26,39,68,.80) 50%, rgba(15,30,70,.70) 100%);
+      pointer-events: none;
+    }
+    .hero-bg-accents {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(26,115,232,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(52,168,83,.10) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-bar {
+      height: 6px;
+      background: linear-gradient(90deg,
+        var(--g-red) 0%, var(--g-red) 25%,
+        var(--g-blue) 25%, var(--g-blue) 50%,
+        var(--g-green) 50%, var(--g-green) 75%,
+        var(--g-yellow) 75%, var(--g-yellow) 100%);
+      position: relative;
+      z-index: 2;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 56px 40px 64px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* ── HERO LOGOS ── */
+    .hero-logos {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .divider-dot {
+      width: 6px; height: 6px;
+      background: rgba(255,255,255,.25);
+      border-radius: 50%;
+    }
+    .img-logo-box {
+      background: rgba(255,255,255,.97);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 10px;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 160px;
+    }
+    .img-logo-box img {
+      display: block;
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+      max-width: 160px;
+    }
+    .img-logo-box.nerdery-box {
+      padding: 12px 20px;
+    }
+    .img-logo-box.nerdery-box svg {
+      height: 22px;
+      width: auto;
+      display: block;
+    }
+    .img-logo-box.nerdery-box svg .st0 { fill: #1a2744; }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(2,128,144,.25);
+      border: 1px solid rgba(2,128,144,.5);
+      border-radius: 24px;
+      padding: 6px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #7ee8f5;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: #fff;
+      max-width: 780px;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: #7ee8f5; font-style: italic; }
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,.78);
+      max-width: 640px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--g-blue);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 13px 28px;
+      border-radius: var(--radius);
+      transition: background .2s, transform .15s, box-shadow .2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: #1557b0; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,115,232,.5); }
+    .btn-outline {
+      background: transparent;
+      color: rgba(255,255,255,.9);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(255,255,255,.35);
+      transition: border-color .2s, background .2s, transform .15s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.07); transform: translateY(-1px); }
+
+    /* ── STAT STRIP ── */
+    .stat-strip {
+      background: var(--nts-navy);
+      padding: 28px 40px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .stat-item {
+      text-align: center;
+      padding: 12px 40px;
+      border-right: 1px solid rgba(255,255,255,.12);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-val {
+      font-family: 'DM Serif Display', serif;
+      font-size: 30px;
+      font-weight: 400;
+      color: #7ee8f5;
+      line-height: 1;
+      display: block;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-top: 5px;
+      display: block;
+    }
+
+    /* ── SECTIONS SHARED ── */
+    section { padding: 80px 40px; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--g-blue);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--nts-navy);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 640px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+    .section-sub:last-child { margin-bottom: 0; }
+
+    /* ── SECTION BACKGROUNDS ── */
+    #intro        { background: var(--white); }
+    #differentiators { background: var(--off); }
+    #structure    { background: var(--white); }
+    #sessions     { background: var(--off); }
+    #phases       { background: var(--white); }
+    /* deliverables — dark mountain */
+    #deliverables {
+      position: relative;
+      color: var(--white);
+    }
+    #deliverables .dark-bg-img {
+      position: absolute; inset: 0;
+      background-image: url('../assets/mountain-bg.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      background-attachment: fixed;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    #deliverables .dark-bg-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,39,68,.92) 0%, rgba(26,39,68,.80) 50%, rgba(15,30,70,.70) 100%);
+      pointer-events: none;
+    }
+    #deliverables .section-inner { position: relative; z-index: 2; }
+    #deliverables .section-title { color: var(--white); }
+    #deliverables .section-eyebrow { color: #7ee8f5; }
+    #deliverables .section-sub { color: rgba(255,255,255,.6); }
+
+    #logistics    { background: var(--off); }
+    #delivery     { background: var(--white); }
+
+    /* buyer profiles — dark mountain */
+    #buyers {
+      position: relative;
+      color: var(--white);
+    }
+    #buyers .dark-bg-img {
+      position: absolute; inset: 0;
+      background-image: url('../assets/mountain-bg.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      background-attachment: fixed;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    #buyers .dark-bg-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,39,68,.92) 0%, rgba(26,39,68,.80) 50%, rgba(15,30,70,.70) 100%);
+      pointer-events: none;
+    }
+    #buyers .section-inner { position: relative; z-index: 2; }
+    #buyers .section-title { color: var(--white); }
+    #buyers .section-eyebrow { color: #7ee8f5; }
+    #buyers .section-sub { color: rgba(255,255,255,.6); }
+
+    #faq          { background: var(--off); }
+
+    /* CTA — dark mountain */
+    #cta {
+      position: relative;
+      color: var(--white);
+      text-align: center;
+    }
+    #cta .dark-bg-img {
+      position: absolute; inset: 0;
+      background-image: url('../assets/mountain-bg.jpg');
+      background-size: cover;
+      background-position: center 60%;
+      background-attachment: fixed;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    #cta .dark-bg-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,39,68,.94) 0%, rgba(26,39,68,.85) 100%);
+      pointer-events: none;
+    }
+    #cta .section-inner { position: relative; z-index: 2; }
+    #cta .section-title { color: #fff; }
+    #cta .section-sub { color: rgba(255,255,255,.72); max-width: 520px; margin: 0 auto 32px; }
+
+    /* ── 3-CARD GRID ── */
+    .cards-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    @media(max-width:860px){ .cards-3 { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--teal);
+    }
+    .card-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+    .card h3 { font-size: 16px; font-weight: 700; color: var(--nts-navy); margin-bottom: 10px; line-height: 1.3; }
+    .card p { font-size: 14.5px; color: var(--muted); line-height: 1.6; }
+
+    /* ── USER STRUCTURE ── */
+    .user-structure {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .user-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 22px 28px;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .user-row:last-child { border-bottom: none; }
+    .user-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+    .user-info h4 { font-size: 15px; font-weight: 700; color: var(--nts-navy); margin-bottom: 5px; }
+    .user-info p { font-size: 14px; color: var(--muted); line-height: 1.55; }
+    .user-badge {
+      flex-shrink: 0;
+      background: rgba(26,115,232,.1);
+      color: var(--g-blue);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+      margin-left: auto;
+      align-self: flex-start;
+    }
+
+    /* ── SESSIONS ── */
+    .sessions-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .session-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 90px 90px;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .session-name {
+      background: var(--nts-navy);
+      color: #fff;
+      padding: 18px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .session-body { padding: 16px 20px; }
+    .session-body strong { font-size: 14px; color: var(--nts-navy); display: block; margin-bottom: 5px; }
+    .session-body p { font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+    .session-meta {
+      padding: 16px 14px;
+      text-align: center;
+      border-left: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .session-meta span {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #aab;
+      margin-bottom: 4px;
+    }
+    @media(max-width:760px){
+      .session-row { grid-template-columns: 1fr; }
+      .session-meta { border-left: none; border-top: 1px solid var(--border); }
+    }
+
+    /* ── PHASES ── */
+    .phases { display: grid; grid-template-columns: 1fr; gap: 0; }
+    .phase { display: grid; grid-template-columns: 72px 1fr; gap: 0; }
+    .phase-num-col { display: flex; flex-direction: column; align-items: center; padding-top: 28px; }
+    .phase-num {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .phase-line { width: 2px; flex: 1; background: var(--border); margin-top: 4px; }
+    .phase:last-child .phase-line { display: none; }
+    .phase-body {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px 28px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+    .phase-body h3 { font-size: 17px; font-weight: 700; color: var(--nts-navy); margin-bottom: 14px; }
+    .phase-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+    @media(max-width:720px){ .phase-cols { grid-template-columns: 1fr; } }
+    .phase-col h4 {
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--teal); margin-bottom: 8px;
+    }
+    .phase-col p, .phase-col li { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+    .phase-col ul { list-style: none; padding: 0; }
+    .phase-col li::before { content: '✓ '; color: var(--teal); font-weight: 700; }
+
+    /* ── DELIVERABLES ── */
+    .deliverables-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    @media(max-width:860px){ .deliverables-grid { grid-template-columns: 1fr; } }
+    .del-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--radius);
+      padding: 26px 24px;
+    }
+    .del-card h3 {
+      font-size: 13px; font-weight: 700;
+      color: #7ee8f5;
+      text-transform: uppercase; letter-spacing: .1em;
+      margin-bottom: 16px;
+    }
+    .del-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+    .del-list li {
+      font-size: 14px; color: rgba(255,255,255,.82);
+      line-height: 1.5;
+      display: flex; gap: 9px; align-items: flex-start;
+    }
+    .del-list li::before { content: '✓'; color: #7ee8f5; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── LOGISTICS TABLE ── */
+    .logistics-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .logistics-table tr { border-bottom: 1px solid var(--border); }
+    .logistics-table tr:last-child { border-bottom: none; }
+    .logistics-table td { padding: 16px 22px; font-size: 14.5px; }
+    .logistics-table td:first-child { font-weight: 600; color: var(--nts-navy); width: 32%; background: var(--off); }
+    .logistics-table td:last-child { color: var(--muted); }
+
+    /* ── DELIVERY BLOCK ── */
+    .delivery-block {
+      background: rgba(26,115,232,.06);
+      border-left: 4px solid var(--g-blue);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 24px 28px;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 760px;
+    }
+
+    /* ── BUYER CARDS ── */
+    .buyer-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    @media(max-width:860px){ .buyer-cards { grid-template-columns: 1fr; } }
+    .buyer-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--radius);
+      padding: 26px 24px;
+      transition: background .2s, border-color .2s, transform .15s;
+    }
+    .buyer-card:hover { background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.2); transform: translateY(-2px); }
+    .buyer-card .card-icon { font-size: 30px; margin-bottom: 12px; display: block; }
+    .buyer-card h3 { color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .buyer-card p { color: rgba(255,255,255,.68); font-size: 14px; line-height: 1.6; }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      padding: 20px 0;
+      font-size: 15px; font-weight: 600;
+      color: var(--nts-navy);
+      cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      user-select: none;
+    }
+    .faq-q:hover { color: var(--teal); }
+    .faq-icon { font-size: 20px; color: var(--teal); flex-shrink: 0; transition: transform .2s; line-height: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      font-size: 14.5px; color: var(--muted);
+      line-height: 1.7;
+      max-height: 0; overflow: hidden;
+      transition: max-height .3s ease, padding .2s;
+    }
+    .faq-item.open .faq-a { max-height: 400px; padding-bottom: 20px; }
+
+    /* ── CTA extras ── */
+    .proc-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.6);
+      font-size: 12px; padding: 6px 14px;
+      border-radius: 20px; margin-top: 20px;
+    }
+    .cta-secondary { margin-top: 16px; font-size: 14px; color: rgba(255,255,255,.45); }
+    .cta-secondary a { color: rgba(255,255,255,.6); text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer { background: #0d1520; padding: 0 40px 28px; }
+    .footer-stripe {
+      height: 4px;
+      background: linear-gradient(90deg, var(--g-blue), var(--teal), var(--g-green));
+      margin-bottom: 40px;
+    }
+    .footer-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr;
+      gap: 48px; padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand img { height: 36px; margin-bottom: 14px; display: block; }
+    .footer-brand p { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.65; max-width: 280px; }
+    .footer-col h5 {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: rgba(255,255,255,.4); margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col ul li a { color: rgba(255,255,255,.6); text-decoration: none; font-size: 13.5px; transition: color .15s; }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1080px; margin: 0 auto;
+      padding-top: 20px;
+      font-size: 12px; color: rgba(255,255,255,.3);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    }
+
+    @media(max-width:760px){
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .back-bar { padding: 10px 24px; }
+      .hero-inner { padding: 40px 24px 48px; }
+      section { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── BACK LINK ── -->
+<div class="back-bar">
+  <a href="../">← Back to Peak Trails Consulting</a>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-bg-accents"></div>
+  <div class="hero-bar"></div>
+
+  <div class="hero-inner">
+
+    <div class="hero-logos">
+      <div class="img-logo-box">
+        <img src="../assets/ntscalogo.png" alt="New Tech Solutions" style="height:28px;">
+      </div>
+      <div class="divider-dot"></div>
+      <div class="img-logo-box nerdery-box">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 149 32.4"><g><path class="st0" d="M48.8,17.6l-11.7-7.6v11.9h2.2v-7.5l11.7,7.6v-11.9h-2.2v7.5Z"/><path class="st0" d="M53.8,21.8h12.6v-2.2h-10.4v-2.6h7.6v-2.2h-7.6v-2.6h10.4v-2.2h-12.6v11.8Z"/><path class="st0" d="M83.1,14c0-2.2-1.8-4-4-4h-9.9v11.8h2.2v-3.8h6.5l2.7,3.8h2.6l-2.8-4.1c1.6-.6,2.7-2.1,2.7-3.8ZM81,14c0,1-.8,1.8-1.8,1.8h-7.7v-3.6h7.7c1,0,1.8.8,1.8,1.8h0Z"/><path class="st0" d="M103.2,21.8h12.6v-2.2h-10.4v-2.6h7.6v-2.2h-7.6v-2.6h10.4v-2.2h-12.6v11.8Z"/><path class="st0" d="M132.5,14c0-2.2-1.8-4-4-4h-9.9v11.8h2.2v-3.8h6.5l2.7,3.8h2.6l-2.8-4.1c1.6-.5,2.7-2.1,2.7-3.8h0ZM130.4,14c0,1-.8,1.8-1.8,1.8h-7.7v-3.6h7.7c1,0,1.8.8,1.8,1.8h0Z"/><path class="st0" d="M94.8,10h-8.7v11.8h8.7c3.3,0,5.9-2.6,5.9-5.9s-2.6-5.9-5.9-5.9ZM98.5,15.9c0,2.1-1.7,3.7-3.7,3.7h-6.5v-7.4h6.5c2.1,0,3.7,1.7,3.7,3.7Z"/><path class="st0" d="M145.8,10l-4.9,5.3-4.9-5.3h-3l6.8,7.3v4.5h2.2v-4.5l6.8-7.3h-3Z"/><path class="st0" d="M2.3,6.9v-2.3c0-.3,0-.7,0-1H.7v4h1.6v-.6Z"/><path class="st0" d="M4.1,11c0,.3.3.5.6.5s.5-.2.6-.5v-3.3h.9v-3.1s-.1-1.8-.4-2.6c-.3-.8-.4-1.3-1.1-1.3s-.9.4-1.1,1.3c-.3.8-.4,2.6-.4,2.6v3.1h.9v3.3Z"/><path class="st0" d="M7,3.6c0,.3,0,.7,0,1v2.9h17.7v-4H7Z"/><path class="st0" d="M6.1,8.5v2.4c0,.7-.7,1.3-1.4,1.3s-1.4-.6-1.4-1.3v-2.4H.7v16.9l12,5.9,12-5.9V8.5H6.1ZM16.5,21.6l-6.6-4.3v4.3h-1.2v-6.7l6.6,4.3v-4.3h1.2v6.7Z"/></g></svg>
+      </div>
+      <div class="divider-dot"></div>
+      <div class="img-logo-box">
+        <img src="../assets/logo_googleCloud.png" alt="Google Cloud" style="height:28px;">
+      </div>
+      <div class="divider-dot"></div>
+      <div class="img-logo-box">
+        <img src="../assets/PTCLogowTextRight.png" alt="Peak Trails Consulting" style="height:28px;">
+      </div>
+    </div>
+
+    <div class="hero-tag">✦ Gemini Enterprise Enablement</div>
+
+    <h1>Your team has already invested<br>in Gemini Enterprise.<br><em>Now let us help you put it to work.</em></h1>
+
+    <p class="hero-sub">A six-week program that takes your organization from licensed to capable — with IT owning the platform and your departments using AI in their daily work before we leave.</p>
+
+    <div class="hero-ctas">
+      <a href="#cta" class="btn-primary">Schedule a Conversation →</a>
+      <a href="#sessions" class="btn-outline">See What's Included</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── STAT STRIP ── -->
+<div class="stat-strip">
+  <div class="stat-item"><span class="stat-val">6</span><span class="stat-label">Weeks</span></div>
+  <div class="stat-item"><span class="stat-val">15</span><span class="stat-label">Licensed Users</span></div>
+  <div class="stat-item"><span class="stat-val">5</span><span class="stat-label">Training Sessions</span></div>
+  <div class="stat-item"><span class="stat-val">3</span><span class="stat-label">Live AI Tools Built</span></div>
+  <div class="stat-item"><span class="stat-val">100%</span><span class="stat-label">Remote</span></div>
+</div>
+
+<!-- ── INTRO — white ── -->
+<section id="intro">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Problem</div>
+    <h2 class="section-title">Most organizations deploy Gemini Enterprise and stop there.</h2>
+    <p class="section-sub">Licenses sit unused. IT doesn't know how to support it. Staff don't know what to do with it. This engagement changes that. We train your IT team to manage the platform, run department-specific workshops built around your actual workflows, and configure one working AI tool for each department. By week six, your IT team manages the platform independently — no ongoing dependency on us.</p>
+  </div>
+</section>
+
+<!-- ── DIFFERENTIATORS — off-white ── -->
+<section id="differentiators">
+  <div class="section-inner">
+    <div class="section-eyebrow">What Makes This Different</div>
+    <h2 class="section-title">Built for adoption, not just deployment.</h2>
+    <p class="section-sub">Three things separate this engagement from a standard Gemini rollout.</p>
+    <div class="cards-3">
+      <div class="card">
+        <span class="card-icon">🎯</span>
+        <h3>Built around your departments, not a generic curriculum</h3>
+        <p>Before we train anyone, we meet with each of your departments to understand what they do every day. Every workshop and every AI tool we configure is mapped to their actual workflows — not hypothetical examples.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔧</span>
+        <h3>IT owns the platform from week two</h3>
+        <p>Your IT team is trained in week two — not handed a manual on the last day. They shadow every configuration step and receive a written admin guide covering everything they need to manage, support, and expand the platform going forward.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">⚡</span>
+        <h3>Every department leaves with a working tool</h3>
+        <p>By the end of the engagement, each of your three departments has a configured AI tool — a NotebookLM knowledge base or a Gem built for their specific daily tasks. Not a demo. A live tool they use tomorrow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STRUCTURE — white ── -->
+<section id="structure">
+  <div class="section-inner">
+    <div class="section-eyebrow">Engagement Structure</div>
+    <h2 class="section-title">15 users. 3 IT admins. 3 departments.</h2>
+    <p class="section-sub">This structure is intentional. IT gets the depth they need to manage the platform. Business users get training and tools relevant to their actual work.</p>
+    <div class="user-structure">
+      <div class="user-row">
+        <span class="user-icon">🛡️</span>
+        <div class="user-info">
+          <h4>3 IT Administrators</h4>
+          <p>Own platform management, user provisioning, security, and ongoing support. Trained in week two — not as a closing handoff. They shadow every configuration step and leave with a written admin guide.</p>
+        </div>
+        <span class="user-badge">3 Users</span>
+      </div>
+      <div class="user-row">
+        <span class="user-icon">🏢</span>
+        <div class="user-info">
+          <h4>Department 1 — 4 Business Users</h4>
+          <p>Attend the shared Gemini basics session and a 90-minute department workshop built around their specific workflows. Leave with a configured AI tool grounded in their actual documents.</p>
+        </div>
+        <span class="user-badge">4 Users</span>
+      </div>
+      <div class="user-row">
+        <span class="user-icon">🏢</span>
+        <div class="user-info">
+          <h4>Department 2 — 4 Business Users</h4>
+          <p>Attend the shared Gemini basics session and their own 90-minute workshop. Use case intake is completed before the workshop so every example reflects their real daily work.</p>
+        </div>
+        <span class="user-badge">4 Users</span>
+      </div>
+      <div class="user-row">
+        <span class="user-icon">🏢</span>
+        <div class="user-info">
+          <h4>Department 3 — 4 Business Users</h4>
+          <p>Same structure as departments 1 and 2. Each department gets their own workshop and their own AI tool — not a shared session padded to cover everyone.</p>
+        </div>
+        <span class="user-badge">4 Users</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SESSIONS — off-white ── -->
+<section id="sessions">
+  <div class="section-inner">
+    <div class="section-eyebrow">Training</div>
+    <h2 class="section-title">Five focused sessions. All remote.</h2>
+    <p class="section-sub">Department workshops are hands-on — not lecture. Each group of 4 works through their own use cases with their own documents during the session.</p>
+    <div class="sessions-grid">
+      <div class="session-row">
+        <div class="session-name">Gemini Basics + Prompting</div>
+        <div class="session-body"><strong>All 12 Business Users</strong><p>Interface orientation · what Gemini Enterprise is and isn't · zero/one/two-shot prompting · role assignment · output formatting</p></div>
+        <div class="session-meta"><span>Duration</span>60 min</div>
+        <div class="session-meta"><span>Audience</span>All 12 users</div>
+      </div>
+      <div class="session-row">
+        <div class="session-name">IT Configuration Training</div>
+        <div class="session-body"><strong>3 IT Administrators</strong><p>GCP console · user provisioning · security settings · audit logs · admin workflows · troubleshooting procedures</p></div>
+        <div class="session-meta"><span>Duration</span>90 min</div>
+        <div class="session-meta"><span>Audience</span>IT team</div>
+      </div>
+      <div class="session-row">
+        <div class="session-name">Dept Workshop — Group 1</div>
+        <div class="session-body"><strong>4 Business Users</strong><p>Hands-on applied workshop: NotebookLM and Gem builder applied to Department 1 use cases identified during intake</p></div>
+        <div class="session-meta"><span>Duration</span>90 min</div>
+        <div class="session-meta"><span>Audience</span>Dept 1</div>
+      </div>
+      <div class="session-row">
+        <div class="session-name">Dept Workshop — Group 2</div>
+        <div class="session-body"><strong>4 Business Users</strong><p>Hands-on applied workshop: NotebookLM and Gem builder applied to Department 2 use cases identified during intake</p></div>
+        <div class="session-meta"><span>Duration</span>90 min</div>
+        <div class="session-meta"><span>Audience</span>Dept 2</div>
+      </div>
+      <div class="session-row">
+        <div class="session-name">Dept Workshop — Group 3</div>
+        <div class="session-body"><strong>4 Business Users</strong><p>Hands-on applied workshop: NotebookLM and Gem builder applied to Department 3 use cases identified during intake</p></div>
+        <div class="session-meta"><span>Duration</span>90 min</div>
+        <div class="session-meta"><span>Audience</span>Dept 3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHASES — white ── -->
+<section id="phases">
+  <div class="section-inner">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-title">Six phases. Six weeks.</h2>
+    <p class="section-sub">Each phase has a defined scope, a defined ask of your team, and a defined set of deliverables. No surprises.</p>
+    <div class="phases">
+
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num">1</div><div class="phase-line"></div></div>
+        <div class="phase-body">
+          <h3>Acceptance — Environment Readiness</h3>
+          <div class="phase-cols">
+            <div class="phase-col"><h4>What Happens</h4><p>GCP foundations build is reviewed and confirmed ready. Any issues blocking rollout are identified and resolved before anyone touches the platform.</p></div>
+            <div class="phase-col"><h4>Your Team</h4><p>IT lead provides access and attends a kickoff call. Estimated time: 1 hour.</p></div>
+            <div class="phase-col"><h4>You Receive</h4><ul><li>Written environment readiness confirmation</li><li>Gap resolution before user provisioning</li><li>Kickoff notes and weekly status cadence</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num">2</div><div class="phase-line"></div></div>
+        <div class="phase-body">
+          <h3>Technical Pilot + IT Training</h3>
+          <div class="phase-cols">
+            <div class="phase-col"><h4>What Happens</h4><p>Your 3 IT admins are first on the platform. We validate SSO, security, and audit logging before any business users are provisioned — then deliver their 90-minute training session.</p></div>
+            <div class="phase-col"><h4>Your Team</h4><p>3 IT admins participate in pilot and attend training. ~3 hours total time commitment.</p></div>
+            <div class="phase-col"><h4>You Receive</h4><ul><li>All 3 IT admins active on platform</li><li>IT configuration training delivered</li><li>Written GCP admin how-to guide</li><li>SSO, security, audit logging validated</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num">3</div><div class="phase-line"></div></div>
+        <div class="phase-body">
+          <h3>User Intake</h3>
+          <div class="phase-cols">
+            <div class="phase-col"><h4>What Happens</h4><p>We meet with each of your 3 departments in a focused 30–45 minute conversation to learn what staff do every day and identify immediate use cases. Workshops are then built around your workflows.</p></div>
+            <div class="phase-col"><h4>Your Team</h4><p>Department representatives attend one 30–45 minute intake conversation. No preparation required.</p></div>
+            <div class="phase-col"><h4>You Receive</h4><ul><li>Use case alignment document per department</li><li>3 customized workshop decks for your workflows</li><li>All 5 sessions scheduled with calendar invites</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num">4</div><div class="phase-line"></div></div>
+        <div class="phase-body">
+          <h3>Training</h3>
+          <div class="phase-cols">
+            <div class="phase-col"><h4>What Happens</h4><p>All 15 licensed users attend sessions tailored to their role. Business users attend the shared basics session and their department workshop. IT admins completed their session in Phase 2.</p></div>
+            <div class="phase-col"><h4>Your Team</h4><p>Business users: 2 sessions (60-min + 90-min). IT admins: already complete from Phase 2.</p></div>
+            <div class="phase-col"><h4>You Receive</h4><ul><li>5 sessions delivered — all remote</li><li>Session decks and exercise guides to keep</li><li>Post-session follow-up notes</li><li>Attendee feedback summary</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num">5</div><div class="phase-line"></div></div>
+        <div class="phase-body">
+          <h3>Hands-On Configuration</h3>
+          <div class="phase-cols">
+            <div class="phase-col"><h4>What Happens</h4><p>One AI tool is configured for each of your 3 departments — grounded in their actual documents, built around their specific use cases. IT admins shadow every step.</p></div>
+            <div class="phase-col"><h4>Your Team</h4><p>Dept reps: 30–60 minutes per configuration session. IT admins shadow all configuration work.</p></div>
+            <div class="phase-col"><h4>You Receive</h4><ul><li>3 live configured AI tools — one per department</li><li>Each tool tested against real use cases</li><li>IT capable of independent replication</li><li>Office hours for adoption support</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num">6</div><div class="phase-line"></div></div>
+        <div class="phase-body">
+          <h3>IT Handoff</h3>
+          <div class="phase-cols">
+            <div class="phase-col"><h4>What Happens</h4><p>Platform ownership formally transfers to your IT team with full documentation. IT was trained and hands-on throughout — this phase is a confirmation, not a last-minute crash course.</p></div>
+            <div class="phase-col"><h4>Your Team</h4><p>IT lead attends a 30-minute handoff call to confirm ownership transfer. No additional time required.</p></div>
+            <div class="phase-col"><h4>You Receive</h4><ul><li>IT admin guide — user mgmt, audit logs, troubleshooting</li><li>Self-sufficiency checklist</li><li>Prioritized next steps document</li><li>Full platform ownership transferred</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── DELIVERABLES — dark mountain ── -->
+<section id="deliverables">
+  <div class="dark-bg-img"></div>
+  <div class="dark-bg-overlay"></div>
+  <div class="section-inner">
+    <div class="section-eyebrow">What You Walk Away With</div>
+    <h2 class="section-title">Every deliverable. Spelled out.</h2>
+    <p class="section-sub">No surprises at handoff. Here is everything your organization receives.</p>
+    <div class="deliverables-grid">
+      <div class="del-card">
+        <h3>Technical</h3>
+        <ul class="del-list">
+          <li>All 15 users provisioned and active on Gemini Enterprise and NotebookLM</li>
+          <li>SSO, authentication, security, and audit logging validated and documented</li>
+          <li>3 working AI tools configured and live — one per department</li>
+          <li>GCP admin how-to guide</li>
+          <li>IT admin guide covering every platform management task</li>
+        </ul>
+      </div>
+      <div class="del-card">
+        <h3>Training</h3>
+        <ul class="del-list">
+          <li>5 sessions delivered — Gemini basics, IT training, 3 dept workshops</li>
+          <li>Session decks and exercise guides for all sessions</li>
+          <li>Use case alignment document per department</li>
+          <li>Post-session follow-up notes and open items addressed</li>
+          <li>Attendee feedback collected and summarized</li>
+        </ul>
+      </div>
+      <div class="del-card">
+        <h3>Handoff</h3>
+        <ul class="del-list">
+          <li>Self-sufficiency checklist — documented IT independence</li>
+          <li>Prioritized next steps document</li>
+          <li>Billing, licensing, and support escalation paths documented</li>
+          <li>IT team trained and capable from week two — not handed a manual at the end</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LOGISTICS — off-white ── -->
+<section id="logistics">
+  <div class="section-inner">
+    <div class="section-eyebrow">Logistics</div>
+    <h2 class="section-title">Everything in one place.</h2>
+    <p class="section-sub">What the engagement looks like end to end.</p>
+    <table class="logistics-table">
+      <tr><td>Format</td><td>100% remote</td></tr>
+      <tr><td>Duration</td><td>6 weeks from kickoff</td></tr>
+      <tr><td>Users</td><td>15 — 3 IT admins + 12 business users (3 departments × 4 users)</td></tr>
+      <tr><td>Sessions</td><td>5 total — 1 shared basics (60 min) · 1 IT training (90 min) · 3 department workshops (90 min each)</td></tr>
+      <tr><td>Configured AI Tools</td><td>3 — one per department, grounded in your actual data</td></tr>
+      <tr><td>Prerequisites</td><td>GCP foundations build complete and Gemini Enterprise licenses active before kickoff</td></tr>
+      <tr><td>Licenses</td><td>15 × Gemini Enterprise Standard + 15 × NotebookLM for Enterprise — purchased through your Google Cloud reseller</td></tr>
+      <tr><td>Your Time Commitment</td><td>Kickoff call + intake (30–45 min per dept) + 2 sessions per business user + IT training + handoff call. No internal PM required.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ── DELIVERY MODEL — white ── -->
+<section id="delivery">
+  <div class="section-inner">
+    <div class="section-eyebrow">Delivery Model</div>
+    <h2 class="section-title">One point of accountability.</h2>
+    <p class="section-sub">Peak Trails Consulting leads every phase — intake, training, configuration, and handoff.</p>
+    <div class="delivery-block">Peak Trails Consulting leads every phase of the engagement — user intake, training delivery, hands-on configuration, and IT handoff. For organizations that need additional support capacity, Peak Trails works with a select group of delivery partners who provide co-delivery, provisioning support, and office hours coverage. Either way, you have a single point of accountability. Peak Trails designs and leads the engagement from kickoff to handoff.</div>
+  </div>
+</section>
+
+<!-- ── BUYERS — dark mountain ── -->
+<section id="buyers">
+  <div class="dark-bg-img"></div>
+  <div class="dark-bg-overlay"></div>
+  <div class="section-inner">
+    <div class="section-eyebrow">Who This Is For</div>
+    <h2 class="section-title">Three buyer profiles.</h2>
+    <p class="section-sub">This engagement is designed for SLED organizations that have Gemini Enterprise licenses and need a structured path from deployment to real adoption.</p>
+    <div class="buyer-cards">
+      <div class="buyer-card">
+        <span class="card-icon">💻</span>
+        <h3>IT Directors and CIOs</h3>
+        <p>You have Gemini Enterprise licenses on a GCP foundation. Your IT team needs to own and support the platform the way they manage any other enterprise tool — and your departments need to actually use it. This engagement delivers both.</p>
+      </div>
+      <div class="buyer-card">
+        <span class="card-icon">🏛️</span>
+        <h3>Department Heads and Business Leaders</h3>
+        <p>Your staff are already using consumer AI tools on their own. This engagement gives them a governed, secure alternative grounded in your organization's actual data, with training built around their specific daily tasks.</p>
+      </div>
+      <div class="buyer-card">
+        <span class="card-icon">🤝</span>
+        <h3>Google Cloud Partners and Resellers</h3>
+        <p>You have clients who have purchased Gemini Enterprise and need a structured path from deployment to adoption. Peak Trails delivers the enablement engagement as a subcontractor or co-delivery partner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ — off-white ── -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-eyebrow">FAQ</div>
+    <h2 class="section-title">Common questions.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Do we need a GCP foundations build before this engagement?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes. This engagement assumes your GCP environment is in place and Gemini Enterprise licenses are active. If you need a foundations build first, we can do that for you as well.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Why 3 departments and 4 users each?<span class="faq-icon">+</span></div>
+        <div class="faq-a">The 15-user structure is designed to give each department enough coverage for meaningful adoption while keeping the engagement focused. It is not a full organizational rollout — it is a structured pilot that gives you proven tools and capable IT staff to expand from.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if our department structure is different?<span class="faq-icon">+</span></div>
+        <div class="faq-a">The 3 × 4 structure is a starting point. Contact us to discuss how the engagement can be adapted to your organization.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do we need technical staff to participate?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes — your IT lead needs to be available for the technical pilot, configuration sessions, and handoff. Business users only need to attend their intake conversation and two sessions.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Who owns the training materials?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Session decks and exercise guides are provided to your organization for internal use. The underlying curriculum is retained by Peak Trails Consulting.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens after the engagement ends?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Your IT team owns the platform. The next steps document provides a prioritized roadmap for what to build next. Peak Trails is available for follow-on engagements if you want to expand into additional departments or more advanced configurations.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can this be procured through a cooperative purchasing vehicle?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes. This engagement is available through cooperative purchasing vehicles held by our authorized reseller partners, including E&I Cooperative CR001528 and OMNIA Partners 152614. Contact us for details.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA — dark mountain ── -->
+<section id="cta">
+  <div class="dark-bg-img"></div>
+  <div class="dark-bg-overlay"></div>
+  <div class="section-inner">
+    <h2 class="section-title">Ready to put your Gemini Enterprise licenses to work?</h2>
+    <p class="section-sub">The engagement starts with a 30-minute conversation. We will tell you honestly whether your organization is ready and what the engagement looks like for your team.</p>
+    <a href="../contactus/" class="btn-primary">Schedule a Conversation →</a>
+    <div><div class="proc-badge">Available through E&I CR001528 · OMNIA Partners 152614 · No competitive bid required</div></div>
+    <p class="cta-secondary">Or email us at <a href="mailto:info@peaktrailsconsulting.com">info@peaktrailsconsulting.com</a></p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-stripe"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+      <p>A joint solution by New Tech Solutions, Peak Trails Consulting, and Google Cloud. Powered by Gemini Enterprise · Vertex AI · Google Cloud Platform.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../geminigetstarted/">Starter Pack</a></li>
+        <li><a href="../gemini-enablement/">Gemini Enablement</a></li>
+        <li><a href="../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../sla-sentinel/">SLA Sentinel</a></li>
+        <li><a href="../peakinsights/">Insights</a></li>
+        <li><a href="../ourpartners/">Partners</a></li>
+        <li><a href="../contactus/">Contact Us</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    <span>Peak Trails Consulting LLC · Google Cloud Partner · © 2026</span>
+    <span>SLED AI Specialist · E&I CR001528 · OMNIA Partners 152614</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</>

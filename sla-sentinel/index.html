@@ -1,0 +1,1006 @@
+<!DOCTYPE/>
+/ lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLA Sentinel — Vendor Financial Governance | New Tech Solutions & Peak Trails Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --nts-navy: #1a2744;
+  --g-blue: #1a73e8;
+  --g-red: #ea4335;
+  --g-yellow: #fbbc04;
+  --g-green: #34a853;
+  --white: #ffffff;
+  --off: #f8f9fb;
+  --text: #1e2022;
+  --muted: #5f6368;
+  --border: #e0e4ea;
+  --shadow: 0 4px 24px rgba(26,39,68,.10);
+  --shadow-lg: 0 12px 48px rgba(26,39,68,.16);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── BACK LINK ── */
+.back-bar {
+  background: #0d1520;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.back-bar a {
+  font-size: 13px;
+  color: rgba(255,255,255,.45);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color .15s;
+}
+
+.back-bar a:hover { color: rgba(255,255,255,.8); }
+
+/* ── HERO ── */
+.hero {
+  color: var(--white);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: fixed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,39,68,.92) 0%, rgba(26,39,68,.80) 50%, rgba(15,30,70,.70) 100%);
+  pointer-events: none;
+}
+
+.hero-bg-accents {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(26,115,232,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(52,168,83,.10) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-bar {
+  height: 6px;
+  background: linear-gradient(90deg,
+    var(--g-red) 0%, var(--g-red) 25%,
+    var(--g-blue) 25%, var(--g-blue) 50%,
+    var(--g-green) 50%, var(--g-green) 75%,
+    var(--g-yellow) 75%, var(--g-yellow) 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 40px 64px;
+  width: 100%;
+  flex: 1;
+}
+
+/* ── LOGOS ── */
+.hero-logos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.divider-dot {
+  width: 6px; height: 6px;
+  background: rgba(255,255,255,.25);
+  border-radius: 50%;
+}
+
+.img-logo-box {
+  background: rgba(255,255,255,.97);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 10px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
+
+.img-logo-box img {
+  display: block;
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  max-width: 160px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,115,232,.25);
+  border: 1px solid rgba(26,115,232,.4);
+  border-radius: 24px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a8c8f8;
+  margin-bottom: 20px;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #4fc3f7;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(1.4); }
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 720px;
+}
+
+.hero h1 em { font-style: italic; color: #7cb9ff; }
+
+.hero-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,.65);
+  max-width: 640px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--g-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 13px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  box-shadow: 0 2px 12px rgba(26,115,232,.4);
+}
+.btn-primary:hover { background: #1557b0; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,115,232,.5); }
+
+.btn-outline {
+  background: transparent;
+  color: rgba(255,255,255,.85);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 8px;
+  padding: 13px 28px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color .2s, background .2s, transform .15s;
+}
+.btn-outline:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.07); transform: translateY(-1px); }
+
+/* ── SECTIONS SHARED ── */
+section { padding: 80px 40px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--g-blue);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--nts-navy);
+  margin-bottom: 16px;
+}
+
+.section-sub {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 620px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+/* ── PROBLEM — white bg ── */
+#problem { background: var(--white); }
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.problem-cards { display: flex; flex-direction: column; gap: 16px; }
+
+.problem-card {
+  border-radius: 14px;
+  padding: 24px;
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--g-red);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: box-shadow .2s, transform .15s;
+}
+.problem-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.problem-card.yellow { border-left-color: var(--g-yellow); }
+.problem-card.blue   { border-left-color: var(--g-blue); }
+.problem-card.green  { border-left-color: var(--g-green); }
+.problem-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
+.problem-card h4 { font-size: 14px; font-weight: 700; color: var(--nts-navy); margin-bottom: 6px; }
+.problem-card p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+.stat-callout {
+  background: var(--nts-navy);
+  border-radius: 20px;
+  padding: 40px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.stat-callout::before {
+  content:'';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.stat-callout-inner { position: relative; z-index: 1; }
+.stat-callout-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7cb9ff; margin-bottom: 24px; }
+.stat-big { font-family: 'DM Serif Display', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 400; color: var(--white); line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 15px; color: rgba(255,255,255,.65); margin-bottom: 28px; line-height: 1.5; }
+.stat-divider { height: 1px; background: rgba(255,255,255,.12); margin-bottom: 24px; }
+.stat-secondary { display: flex; flex-direction: column; gap: 16px; }
+.stat-row { display: flex; align-items: flex-start; gap: 14px; }
+.stat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.stat-dot.red    { background: var(--g-red); }
+.stat-dot.yellow { background: var(--g-yellow); }
+.stat-dot.blue   { background: var(--g-blue); }
+.stat-dot.green  { background: var(--g-green); }
+.stat-row-text { font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.5; }
+
+/* ── HOW IT WORKS — dark mountain bg ── */
+#how-it-works {
+  position: relative;
+  color: var(--white);
+}
+#how-it-works .how-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: fixed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+#how-it-works .how-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,39,68,.92) 0%, rgba(26,39,68,.80) 50%, rgba(15,30,70,.70) 100%);
+  pointer-events: none;
+}
+#how-it-works .section-inner  { position: relative; z-index: 2; }
+#how-it-works .section-title  { color: var(--white); }
+#how-it-works .section-eyebrow{ color: #7cb9ff; }
+#how-it-works .section-sub    { color: rgba(255,255,255,.55); }
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.step-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px;
+  padding: 28px 22px;
+  transition: background .2s, border-color .2s, transform .15s;
+}
+.step-card:hover { background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.2); transform: translateY(-2px); }
+.step-num { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7cb9ff; margin-bottom: 12px; }
+.step-icon { font-size: 28px; margin-bottom: 12px; }
+.step-card h4 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.step-card p  { font-size: 12.5px; color: rgba(255,255,255,.55); line-height: 1.6; }
+
+/* ── VALUE — white bg ── */
+#value { background: var(--white); }
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.value-card {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  transition: box-shadow .2s, transform .15s, border-color .2s;
+}
+.value-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-color: #c0cde8; }
+.value-card.strategic { border-color: rgba(251,188,4,.4); background: linear-gradient(135deg, #fffdf0 0%, var(--off) 100%); }
+.value-icon { font-size: 28px; margin-bottom: 14px; }
+.value-card h4 { font-size: 14px; font-weight: 700; color: var(--nts-navy); margin-bottom: 8px; }
+.value-card p  { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+/* ── AUDIENCE — dark mountain bg ── */
+#audience {
+  position: relative;
+  color: var(--white);
+}
+#audience .aud-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: fixed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+#audience .aud-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,39,68,.92) 0%, rgba(26,39,68,.80) 50%, rgba(15,30,70,.70) 100%);
+  pointer-events: none;
+}
+#audience .section-inner  { position: relative; z-index: 2; }
+#audience .section-title  { color: var(--white); }
+#audience .section-eyebrow{ color: #7cb9ff; }
+#audience .section-sub    { color: rgba(255,255,255,.55); }
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.aud-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px;
+  padding: 28px 22px;
+  transition: background .2s, border-color .2s, transform .15s;
+}
+.aud-card:hover { background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.2); transform: translateY(-2px); }
+.aud-role { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7cb9ff; margin-bottom: 10px; }
+.aud-card h4 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.aud-card p  { font-size: 12.5px; color: rgba(255,255,255,.5); line-height: 1.6; }
+
+/* ── ENGAGEMENT — off-white bg ── */
+#engagement { background: var(--off); }
+
+.engage-list { display: flex; flex-direction: column; gap: 16px; max-width: 720px; margin-bottom: 40px; }
+
+.engage-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: box-shadow .2s, transform .15s;
+}
+.engage-item:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.engage-num { font-family: 'DM Serif Display', serif; font-size: 28px; font-weight: 400; color: var(--nts-navy); opacity: .2; line-height: 1; flex-shrink: 0; width: 36px; }
+.engage-content h4 { font-size: 14px; font-weight: 700; color: var(--nts-navy); margin-bottom: 6px; }
+.engage-content p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+.procurement-bar {
+  background: var(--nts-navy);
+  border-radius: 16px;
+  padding: 28px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.procurement-bar::before {
+  content:'';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.procurement-bar-inner { position: relative; z-index: 1; }
+.procurement-bar-inner p { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7cb9ff; margin-bottom: 8px; }
+.procurement-bar-inner strong { font-size: 14px; color: rgba(255,255,255,.75); font-weight: 500; }
+
+/* ── CTA — white bg ── */
+#cta { background: var(--white); }
+
+.cta-box {
+  background: var(--nts-navy);
+  border-radius: 24px;
+  padding: 64px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-box::before {
+  content:'';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(26,115,232,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(52,168,83,.10) 0%, transparent 50%);
+  pointer-events: none;
+}
+.cta-box::after {
+  content:'';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.cta-inner { position: relative; z-index: 1; }
+.cta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,115,232,.25);
+  border: 1px solid rgba(26,115,232,.4);
+  border-radius: 24px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a8c8f8;
+  margin-bottom: 24px;
+}
+.cta-box h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 44px); color: var(--white); margin-bottom: 16px; line-height: 1.15; }
+.cta-box h2 em { font-style: italic; color: #7cb9ff; }
+.cta-box p { font-size: 16px; color: rgba(255,255,255,.6); max-width: 560px; margin: 0 auto 40px; line-height: 1.7; }
+.cta-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.btn-cta {
+  background: var(--white);
+  color: var(--nts-navy);
+  border: none;
+  border-radius: 8px;
+  padding: 15px 36px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  box-shadow: 0 4px 20px rgba(0,0,0,.25);
+}
+.btn-cta:hover { background: #f0f4ff; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.3); }
+.cta-fine { margin-top: 24px; font-size: 12px; color: rgba(255,255,255,.35); }
+
+/* ── FOOTER ── */
+footer { background: #0d1520; color: rgba(255,255,255,.35); padding: 0 40px 28px; font-size: 13px; }
+
+.footer-stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--g-blue) 0%, var(--g-blue) 25%,
+    var(--g-red) 25%, var(--g-red) 50%,
+    var(--g-yellow) 50%, var(--g-yellow) 75%,
+    var(--g-green) 75%, var(--g-green) 100%);
+  margin-bottom: 40px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.footer-brand img { height: 48px; margin-bottom: 16px; display: block; }
+.footer-brand p   { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.7; max-width: 240px; }
+.footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a { font-size: 13px; color: rgba(255,255,255,.4); text-decoration: none; transition: color .15s; }
+.footer-col ul a:hover { color: rgba(255,255,255,.8); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,.25);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .problem-grid { grid-template-columns: 1fr; }
+  .steps-grid   { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  section { padding: 56px 24px; }
+  .hero-inner { padding: 40px 24px 48px; }
+  .cta-box { padding: 48px 28px; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .back-bar { padding: 10px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── BACK LINK ── -->
+<div class="back-bar">
+  <a href="../">← Back to Peak Trails Consulting</a>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-bg-accents"></div>
+  <div class="hero-bar"></div>
+
+  <div class="hero-inner">
+
+    <div class="hero-logos">
+      <div class="img-logo-box">
+        <img src="../assets/ntscalogo.png" alt="New Tech Solutions" style="height:28px;">
+      </div>
+      <div class="divider-dot"></div>
+      <div class="img-logo-box">
+        <img src="../assets/logo_googleCloud.png" alt="Google Cloud" style="height:28px;">
+      </div>
+      <div class="divider-dot"></div>
+      <div class="img-logo-box" style="padding: 6px 18px;">
+        <img src="../assets/PTCLogowTextRight.png" alt="Peak Trails Consulting" style="height:36px;">
+      </div>
+    </div>
+
+    <div class="hero-tag">Vendor Financial Governance</div>
+
+    <h1>Your vendors owe you money.<br><em>Start collecting it.</em></h1>
+
+    <p class="hero-sub">Your organization negotiates SaaS contracts based on committed service levels — uptime, response time, availability. You're paying for that performance. SLA Sentinel ensures you're actually receiving it, surfaces the financial penalties when you're not, and builds the verified performance record your contracts team needs to negotiate from a position of strength at every renewal.</p>
+
+    <div class="hero-ctas">
+      <a href="#cta" class="btn-primary">Request a Discovery Conversation →</a>
+      <a href="#how-it-works" class="btn-outline">See How It Works</a>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ── THE PROBLEM — white ── -->
+<section id="problem">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Situation</div>
+    <h2 class="section-title">The breach happened.<br>The penalty went unclaimed.</h2>
+    <p class="section-sub">SaaS vendor contracts routinely carry penalty clauses — credits due when a vendor misses their committed service level. The problem isn't compliance. It's visibility.</p>
+
+    <div class="problem-grid">
+
+      <div class="problem-cards">
+        <div class="problem-card">
+          <div class="problem-icon">🔎</div>
+          <div>
+            <h4>Detection Is Manual</h4>
+            <p>No one connects the outage to the contract threshold in time. By the time the window closes, the claim is gone.</p>
+          </div>
+        </div>
+        <div class="problem-card yellow">
+          <div class="problem-icon">📄</div>
+          <div>
+            <h4>Contract Terms Are Buried</h4>
+            <p>Penalty triggers live in PDFs, not dashboards. Nobody is reading them against live service data.</p>
+          </div>
+        </div>
+        <div class="problem-card blue">
+          <div class="problem-icon">🧮</div>
+          <div>
+            <h4>The Calculation Never Gets Done</h4>
+            <p>The effort to research a claim exceeds the perceived recovery — so the work never happens.</p>
+          </div>
+        </div>
+        <div class="problem-card green">
+          <div class="problem-icon">📉</div>
+          <div>
+            <h4>Breaches Accumulate Invisibly</h4>
+            <p>Across every active vendor, every month — no record, no pattern, and no leverage at renewal.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-callout">
+        <div class="stat-callout-inner">
+          <div class="stat-callout-eyebrow">The Cost of Not Tracking</div>
+          <div class="stat-big">Unclaimed</div>
+          <div class="stat-label">Penalty credits owed to your organization — not because vendors are compliant, but because nobody is watching.</div>
+          <div class="stat-divider"></div>
+          <div class="stat-secondary">
+            <div class="stat-row">
+              <div class="stat-dot red"></div>
+              <div class="stat-row-text">Every SaaS contract with an SLA carries potential financial exposure — most organizations have dozens</div>
+            </div>
+            <div class="stat-row">
+              <div class="stat-dot yellow"></div>
+              <div class="stat-row-text">Claim windows are defined in the contract — miss the window and the credit is permanently forfeited</div>
+            </div>
+            <div class="stat-row">
+              <div class="stat-dot blue"></div>
+              <div class="stat-row-text">Contracts teams have no systematic way to enforce what they successfully negotiated</div>
+            </div>
+            <div class="stat-row">
+              <div class="stat-dot green"></div>
+              <div class="stat-row-text">At renewal, vendors negotiate from memory — your team negotiates without data</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── HOW IT WORKS — dark mountain ── -->
+<section id="how-it-works">
+  <div class="how-bg-img"></div>
+  <div class="how-bg-overlay"></div>
+  <div class="section-inner">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-title">Six steps. From contract clause<br>to negotiating advantage.</h2>
+    <p class="section-sub">SLA Sentinel begins with a structured mapping engagement — your contracts team, your network team, and Gemini working together to turn contract language into measurable thresholds. Every step after that runs automatically, building a verified performance record that compounds in value over time.</p>
+
+    <div class="steps-grid">
+
+      <div class="step-card">
+        <div class="step-num">Step 01</div>
+        <div class="step-icon">🗺️</div>
+        <h4>Map</h4>
+        <p>Your contracts team and network team work with us — with Gemini's help — to translate SLA penalty clauses into measurable thresholds. We identify what your existing monitoring platform already collects and what may need to be configured. The output is a detection ruleset your team owns.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">Step 02</div>
+        <div class="step-icon">📡</div>
+        <h4>Detect</h4>
+        <p>Your existing monitoring platform identifies a service condition — uptime below SLA commitment, response time breach, or error rate trigger. No new monitoring infrastructure required.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">Step 03</div>
+        <div class="step-icon">⚡</div>
+        <h4>Ingest</h4>
+        <p>A structured event is sent to Google Cloud, validated, normalized with vendor identity, and written to a permanent breach record.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">Step 04</div>
+        <div class="step-icon">🧠</div>
+        <h4>Analyze</h4>
+        <p>With Gemini's help, the relevant vendor contract is read, the applicable penalty clause is identified, and financial exposure is calculated — including penalty tiers, measurement windows, and exclusion conditions.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">Step 05</div>
+        <div class="step-icon">📋</div>
+        <h4>Notify</h4>
+        <p>Leadership receives a structured breach summary: vendor name, outage duration, SLA threshold breached, financial penalty calculated, and recommended next action.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">Step 06</div>
+        <div class="step-icon">🗂️</div>
+        <h4>Record</h4>
+        <p>Every breach event, calculation, and leadership action is permanently logged — available for vendor dispute resolution, audit, compliance reporting, and contract renewal negotiations.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── VALUE — white ── -->
+<section id="value">
+  <div class="section-inner">
+    <div class="section-eyebrow">Where the Value Lands</div>
+    <h2 class="section-title">Five reasons this matters<br>beyond the first claim.</h2>
+    <p class="section-sub">The financial recovery is the entry point. The compounding value is the reason to build it.</p>
+
+    <div class="value-grid">
+
+      <div class="value-card">
+        <div class="value-icon">💰</div>
+        <h4>Cost Recovery</h4>
+        <p>Penalty credits go unclaimed not because vendors are compliant — but because nobody is tracking. Even modest recovery rates across a multi-vendor portfolio represent significant recurring value.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">📊</div>
+        <h4>Vendor Accountability</h4>
+        <p>When breaches are tracked automatically, service levels improve. The conversation shifts from reactive complaint to documented evidence.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">🔍</div>
+        <h4>Audit Readiness</h4>
+        <p>Every breach, calculation, and action is permanently logged. Dispute resolution and compliance reporting become straightforward, not a research project.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">🔗</div>
+        <h4>Extensible by Design</h4>
+        <p>Built for one pilot contract. The same architecture extends to every vendor and contract type in your portfolio — without a rebuild.</p>
+      </div>
+
+      <div class="value-card strategic">
+        <div class="value-icon">🏆</div>
+        <h4>Strategic Negotiation Leverage</h4>
+        <p>At renewal, your contracts team walks into the room with a complete performance record — every breach, every duration, every pattern across the contract term. Vendors negotiate differently when the other side has the data. The longer SLA Sentinel runs, the stronger your position becomes.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── AUDIENCE — dark mountain ── -->
+<section id="audience">
+  <div class="aud-bg-img"></div>
+  <div class="aud-bg-overlay"></div>
+  <div class="section-inner">
+    <div class="section-eyebrow">Who This Is For</div>
+    <h2 class="section-title">Built for the people<br>who own the contracts.</h2>
+    <p class="section-sub">SLA Sentinel is designed for SLED organizations — universities, state agencies, and municipalities managing complex vendor portfolios with a mandate to recover every dollar they are owed.</p>
+
+    <div class="audience-grid">
+
+      <div class="aud-card">
+        <div class="aud-role">Contracts Director</div>
+        <h4>Systematic Enforcement</h4>
+        <p>You hold the SLA agreements. SLA Sentinel gives you a systematic way to enforce penalty clauses — without a manual tracking process or a dedicated analyst.</p>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-role">CTO</div>
+        <h4>Vendor Relationship Leverage</h4>
+        <p>Responsible for technical performance commitments. SLA Sentinel turns every breach into a documented, quantified event — shifting vendor conversations from opinion to evidence.</p>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-role">CIO</div>
+        <h4>Portfolio Visibility</h4>
+        <p>Managing a multi-vendor SaaS environment with limited visibility into actual delivery. SLA Sentinel surfaces what's happening across every vendor, automatically.</p>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-role">CISO</div>
+        <h4>Audit Trail</h4>
+        <p>Requires a permanent record of vendor reliability events for compliance and risk management. SLA Sentinel logs every breach, calculation, and action — discoverable on demand.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── ENGAGEMENT — off-white ── -->
+<section id="engagement">
+  <div class="section-inner">
+    <div class="section-eyebrow">How We Engage</div>
+    <h2 class="section-title">Start with one contract.<br>Prove the value. Expand.</h2>
+    <p class="section-sub">We begin with a single pilot vendor contract — mapping your monitoring environment, scoping the integration, and delivering a fixed-fee feasibility phase before any major commitment.</p>
+
+    <div class="engage-list">
+
+      <div class="engage-item">
+        <div class="engage-num">01</div>
+        <div class="engage-content">
+          <h4>Discovery</h4>
+          <p>Map your monitoring environment and one pilot vendor contract. We identify exactly what SLA Sentinel would surface — before any commitment.</p>
+        </div>
+      </div>
+
+      <div class="engage-item">
+        <div class="engage-num">02</div>
+        <div class="engage-content">
+          <h4>Design</h4>
+          <p>Architect the integration and produce a fixed-fee feasibility scope. You know exactly what you are buying before we begin.</p>
+        </div>
+      </div>
+
+      <div class="engage-item">
+        <div class="engage-num">03</div>
+        <div class="engage-content">
+          <h4>Build &amp; Enable</h4>
+          <p>Your team builds with our guidance. You own the result — full institutional ownership, no ongoing vendor dependency.</p>
+        </div>
+      </div>
+
+      <div class="engage-item">
+        <div class="engage-num">04</div>
+        <div class="engage-content">
+          <h4>Extend</h4>
+          <p>The pattern built for one vendor applies to every additional contract in your portfolio. No rebuild required.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="procurement-bar">
+      <div class="procurement-bar-inner">
+        <p>Contract-Ready Through Cooperative Procurement — No Competitive Bid Required</p>
+        <strong>E&amp;I Cooperative Contract CR001528 (AI Solutions &amp; Services) &nbsp;·&nbsp; OMNIA Partners Contract 152614</strong>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── CTA — white ── -->
+<section id="cta">
+  <div class="section-inner">
+    <div class="cta-box">
+      <div class="cta-inner">
+        <div class="cta-tag">Ready to Start</div>
+        <h2>See what your vendor portfolio<br><em>actually owes you.</em></h2>
+        <p>We'll map your monitoring environment against one vendor contract and show you exactly what SLA Sentinel would surface — before any commitment.</p>
+        <div class="cta-actions">
+          <a href="../contactus/" class="btn-cta">Request a Discovery Conversation →</a>
+        </div>
+        <div class="cta-fine">Available through E&amp;I CR001528 · OMNIA Partners 152614 · No competitive bid required</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-stripe"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+      <p>A joint solution by New Tech Solutions, Peak Trails Consulting, and Google Cloud. Powered by Gemini · Vertex AI · Google Cloud Platform.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Peak Trails</h5>
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../geminigetstarted/">Gemini Starter Pack</a></li>
+        <li><a href="../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../contactus/">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:info@peaktrailsconsulting.com">info@peaktrailsconsulting.com</a></li>
+        <li><a href="../contactus/">Schedule a Conversation</a></li>
+        <li><span style="color:rgba(255,255,255,.35);">Denver, CO</span></li>
+        <li>
+          <a href="https://www.linkedin.com/company/peak-trails-consulting-llc" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;">
+            <img src="../assets/linedin.png" alt="LinkedIn" style="height:20px;filter:brightness(0) invert(1);opacity:.6;">
+            <span>LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Peak Trails Consulting LLC · Google Cloud Partner · © 2026</span>
+    <span>New Tech Solutions · SLED AI Specialist</span>
+  </div>
+</footer>
+
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+});
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if(en.isIntersecting) {
+      en.target.style.opacity = '1';
+      en.target.style.transform = 'translateY(0)';
+      obs.unobserve(en.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.step-card, .value-card, .aud-card, .problem-card, .engage-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  obs.observe(el);
+});
+</script>
+
+</body>
+</>

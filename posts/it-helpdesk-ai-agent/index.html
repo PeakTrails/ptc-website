@@ -1,0 +1,285 @@
+<!DOCTYPE/>
+/ lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Happens When Your IT Helpdesk Can Answer Before the Ticket Is Filed — Peak Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --nts-navy: #1a2744;
+  --g-blue:   #1a73e8;
+  --g-red:    #ea4335;
+  --g-yellow: #fbbc04;
+  --g-green:  #34a853;
+  --white:    #ffffff;
+  --off:      #f8f9fb;
+  --text:     #1e2022;
+  --muted:    #5f6368;
+  --border:   #e0e4ea;
+  --shadow:   0 4px 24px rgba(26,39,68,.10);
+  --nav-h:    88px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--off); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+/* ── NAV ── */
+.nav { position: sticky; top: 0; z-index: 100; height: var(--nav-h); background: var(--nts-navy); border-bottom: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo img { height: 72px; display: block; }
+.nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.72); text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap; }
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,.08); }
+.nav-links a.active { color: var(--white); background: rgba(255,255,255,.1); }
+.nav-cta a { background: var(--g-blue); color: var(--white); font-size: 13px; font-weight: 600; text-decoration: none; padding: 8px 18px; border-radius: 7px; transition: background .15s, transform .15s; white-space: nowrap; margin-left: 8px; }
+.nav-cta a:hover { background: #1557b0; transform: translateY(-1px); }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-toggle span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,.8); border-radius: 2px; }
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+  .nav-menu { display: none; position: absolute; top: var(--nav-h); left: 0; right: 0; background: var(--nts-navy); border-bottom: 1px solid rgba(255,255,255,.1); padding: 16px 20px 20px; flex-direction: column; gap: 4px; }
+  .nav-menu.open { display: flex; }
+  .nav-links { flex-direction: column; align-items: flex-start; width: 100%; }
+  .nav-links a { width: 100%; padding: 10px 12px; }
+  .nav-cta { width: 100%; margin-top: 8px; }
+  .nav-cta a { display: block; text-align: center; padding: 10px 18px; margin-left: 0; }
+}
+
+/* ── POST HEADER ── */
+.post-header { position: relative; overflow: hidden; background: var(--nts-navy); color: var(--white); }
+.post-header-bg { position: absolute; inset: 0; background-image: url('../../assets/mountain-bg.jpg'); background-size: cover; background-position: center 40%; background-attachment: fixed; opacity: 0.35; pointer-events: none; }
+.post-header-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,39,68,.92) 0%, rgba(26,39,68,.85) 100%); pointer-events: none; }
+.post-header-bar { height: 6px; background: linear-gradient(90deg, var(--g-blue) 0%, var(--g-blue) 25%, var(--g-red) 25%, var(--g-red) 50%, var(--g-yellow) 50%, var(--g-yellow) 75%, var(--g-green) 75%, var(--g-green) 100%); position: relative; z-index: 2; }
+.post-header-inner { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; padding: 56px 40px 64px; }
+.post-breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(255,255,255,.45); margin-bottom: 24px; }
+.post-breadcrumb a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .15s; }
+.post-breadcrumb a:hover { color: rgba(255,255,255,.8); }
+.post-breadcrumb-sep { font-size: 10px; }
+.post-pillar { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 20px; width: fit-content; }
+.post-pillar.usecase { background: rgba(52,168,83,.25); color: #a8f0c6; border: 1px solid rgba(52,168,83,.35); }
+.post-title { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 46px); font-weight: 400; line-height: 1.1; margin-bottom: 20px; color: var(--white); }
+.post-title em { font-style: italic; color: #7cb9ff; }
+.post-meta { display: flex; align-items: center; gap: 16px; font-size: 13px; color: rgba(255,255,255,.5); }
+.post-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,.25); }
+
+/* ── ARTICLE ── */
+.article-wrap { background: var(--white); padding: 64px 40px 80px; }
+.article-inner { max-width: 720px; margin: 0 auto; }
+.article-body { font-size: 16px; line-height: 1.85; color: #2d3436; }
+.article-body p { margin-bottom: 24px; }
+.article-body h2 { font-family: 'DM Serif Display', serif; font-size: 26px; font-weight: 400; color: var(--nts-navy); margin: 40px 0 16px; line-height: 1.2; }
+.article-body strong { font-weight: 700; color: var(--nts-navy); }
+.article-body ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 0 0 24px 0; }
+.article-body ul li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.65; }
+.article-body ul li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--g-blue); flex-shrink: 0; margin-top: 8px; }
+
+.pull-quote { border-left: 4px solid var(--g-blue); padding: 20px 28px; margin: 36px 0; background: rgba(26,115,232,.04); border-radius: 0 12px 12px 0; }
+.pull-quote p { font-family: 'DM Serif Display', serif; font-size: 20px; font-style: italic; color: var(--nts-navy); line-height: 1.4; margin: 0; }
+
+.stat-box { background: var(--nts-navy); border-radius: 16px; padding: 32px 36px; margin: 36px 0; color: var(--white); position: relative; overflow: hidden; }
+.stat-box::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 32px 32px; }
+.stat-box-inner { position: relative; z-index: 1; }
+.stat-box-num { font-family: 'DM Serif Display', serif; font-size: 56px; font-weight: 400; color: var(--white); line-height: 1; margin-bottom: 8px; }
+.stat-box-label { font-size: 15px; color: rgba(255,255,255,.6); line-height: 1.5; }
+
+.article-divider { height: 1px; background: var(--border); margin: 40px 0; }
+
+.screenshot-placeholder { background: var(--off); border: 2px dashed var(--border); border-radius: 12px; padding: 48px 32px; margin: 32px 0; text-align: center; }
+.screenshot-placeholder-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.screenshot-placeholder-caption { font-size: 14px; color: var(--muted); }
+
+.post-cta { background: linear-gradient(135deg, #0d1f3c 0%, #1a2744 100%); border-radius: 20px; padding: 40px 48px; margin-top: 48px; text-align: center; position: relative; overflow: hidden; }
+.post-cta::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 40px 40px; }
+.post-cta-inner { position: relative; z-index: 1; }
+.post-cta h3 { font-family: 'DM Serif Display', serif; font-size: 24px; font-weight: 400; color: var(--white); margin-bottom: 12px; line-height: 1.2; }
+.post-cta p { font-size: 14px; color: rgba(255,255,255,.6); margin-bottom: 24px; line-height: 1.6; max-width: 460px; margin-left: auto; margin-right: auto; }
+.btn-primary { background: var(--g-blue); color: var(--white); border: none; border-radius: 8px; padding: 12px 28px; font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background .2s, transform .15s, box-shadow .2s; box-shadow: 0 2px 12px rgba(26,115,232,.4); }
+.btn-primary:hover { background: #1557b0; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,115,232,.5); }
+
+.back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--g-blue); text-decoration: none; margin-bottom: 40px; transition: gap .15s; }
+.back-link:hover { gap: 10px; }
+
+/* ── FOOTER ── */
+footer { background: #0d1520; color: rgba(255,255,255,.35); padding: 0 40px 28px; font-size: 13px; }
+.footer-stripe { height: 5px; background: linear-gradient(90deg, var(--g-blue) 0%, var(--g-blue) 25%, var(--g-red) 25%, var(--g-red) 50%, var(--g-yellow) 50%, var(--g-yellow) 75%, var(--g-green) 75%, var(--g-green) 100%); margin-bottom: 48px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.footer-brand img { height: 48px; margin-bottom: 16px; display: block; }
+.footer-brand p { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.7; max-width: 240px; }
+.footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a { font-size: 13px; color: rgba(255,255,255,.4); text-decoration: none; transition: color .15s; }
+.footer-col ul a:hover { color: rgba(255,255,255,.8); }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255,255,255,.25); }
+@media (max-width: 768px) {
+  .post-header-inner { padding: 40px 20px 48px; }
+  .article-wrap { padding: 40px 20px 64px; }
+  .post-cta { padding: 32px 24px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../../" class="nav-logo"><img src="../../assets/ptc-logo-white.png" alt="Peak Trails Consulting"></a>
+    <div class="nav-toggle" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="../../">Home</a></li>
+        <li><a href="../../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../../discovery/">Discovery &amp; Roadmap</a></li>
+        <li><a href="../../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../../ourpartners/">Our Partners</a></li>
+        <li><a href="../../peakinsights/" class="active">Peak Insights</a></li>
+        <li class="nav-cta"><a href="../../contactus/">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="post-header">
+  <div class="post-header-bg"></div>
+  <div class="post-header-overlay"></div>
+  <div class="post-header-bar"></div>
+  <div class="post-header-inner">
+    <div class="post-breadcrumb">
+      <a href="../../peakinsights/">Peak Insights</a>
+      <span class="post-breadcrumb-sep">›</span>
+      <span>Use Case Spotlight</span>
+    </div>
+    <div class="post-pillar usecase">Use Case Spotlight</div>
+    <h1 class="post-title">What Happens When Your IT Helpdesk Can<br><em>Answer Before the Ticket Is Filed</em></h1>
+    <div class="post-meta">
+      <span>Mark Hardy</span>
+      <div class="post-meta-dot"></div>
+      <span>April 2026</span>
+      <div class="post-meta-dot"></div>
+      <span>4 min read</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-inner">
+    <a href="../../peakinsights/" class="back-link">← Back to Peak Insights</a>
+    <div class="article-body">
+
+      <p>In most SLED IT departments, the helpdesk runs on a familiar loop: employee has a problem, submits a ticket, waits in queue, gets a response. The backlog grows. Staff spend a significant portion of their day on Tier 1 issues — password resets, printer connectivity, VPN access, software installs — that follow the same resolution path every time.</p>
+
+      <p>The problem is not that IT staff are slow. The problem is that the system requires a human to be in the loop for issues that have documented, repeatable fixes. Every Tier 1 ticket that reaches a technician is time that could have been spent on something that actually requires judgment.</p>
+
+      <p>An IT helpdesk agent changes that ratio without changing your existing ticketing system.</p>
+
+      <div class="article-divider"></div>
+
+      <h2>What the Agent Actually Does</h2>
+
+      <p>The IT Helpdesk Agent is a conversational AI portal built on Google Cloud and grounded in the organization's own IT knowledge base. It handles the full Tier 1 resolution flow — and creates a structured ticket in ServiceNow when it cannot resolve the issue itself.</p>
+
+      <p>The flow is straightforward. The employee describes their problem in plain language. The agent triages with one targeted clarifying question, follows up with one more if needed, then searches the internal knowledge base and delivers a resolution in plain English — maximum five steps. If the employee confirms the issue is resolved, the conversation closes. If not, the agent creates a ticket automatically with all context captured, no re-entry required.</p>
+
+      <figure style="margin: 32px 0;">
+        <img src="../../assets/ITHelpdesk1.png"
+             alt="IT Helpdesk Portal — conversational Tier 1 resolution"
+             style="width:100%; border-radius:12px; border:1px solid var(--border); box-shadow: 0 4px 24px rgba(26,39,68,.10);">
+        <figcaption style="font-size:13px; color:var(--muted); margin-top:10px; text-align:center;">User portal — conversational Tier 1 resolution with triage, knowledge base search, and step-by-step fix</figcaption>
+      </figure>
+
+      <p>The management view shows live metrics — tickets deflected, resolution rate, active conversations, and a real-time satisfaction score updated after every resolved interaction. IT leadership has visibility into what is being resolved, what is being escalated, and where the knowledge base has gaps.</p>
+
+      <figure style="margin: 32px 0;">
+        <img src="../../assets/ITHelpdesk2.png"
+             alt="IT Helpdesk Management Dashboard — live KPIs and satisfaction score"
+             style="width:100%; border-radius:12px; border:1px solid var(--border); box-shadow: 0 4px 24px rgba(26,39,68,.10);">
+        <figcaption style="font-size:13px; color:var(--muted); margin-top:10px; text-align:center;">Management dashboard — live KPIs, ticket deflection rate, and satisfaction score updated after every resolved interaction</figcaption>
+      </figure>
+
+      <div class="pull-quote">
+        <p>"Every Tier 1 ticket the agent resolves is 15 to 30 minutes returned to your IT staff. At volume, that is a meaningful shift in how the team spends its time."</p>
+      </div>
+
+      <h2>Grounded in Your Knowledge Base, Not Generic AI</h2>
+
+      <p>The difference between a generic AI assistant and this agent is the data it reasons over. The IT Helpdesk Agent searches the organization's own internal documentation — KB articles, SOPs, known issue logs, configuration guides — using Vertex AI Search. It does not rely on public internet knowledge or general training data to answer questions about your specific environment.</p>
+
+      <p>This matters for two reasons. First, the answers are accurate for your systems, not a generic approximation. Second, the data stays inside your Google Cloud boundary. Employee names, department information, and IT issue details never leave your environment.</p>
+
+      <div class="stat-box">
+        <div class="stat-box-inner">
+          <div class="stat-box-num">Tier 1</div>
+          <div class="stat-box-label">Password resets, printer issues, VPN access, software installs — the repeatable issues that consume the most helpdesk time are exactly what the agent handles best.</div>
+        </div>
+      </div>
+
+      <h2>How It Connects to ServiceNow</h2>
+
+      <p>The agent does not replace ServiceNow — it sits in front of it. When the agent cannot resolve an issue, it creates a structured ticket automatically with the full conversation context, the issue category, the employee's name and department, and any diagnostic information gathered during triage. The ticket arrives in ServiceNow complete, not as a one-line description that the technician has to investigate from scratch.</p>
+
+      <p>Tickets created by the agent are consistently better structured than self-submitted tickets. Technicians get more context. Resolution time on escalated issues goes down even when the agent does not fully resolve the issue itself.</p>
+
+      <h2>What a Pilot Looks Like</h2>
+
+      <p>An IT helpdesk pilot starts with the knowledge base. Existing KB articles, SOPs, and common issue documentation are loaded into a private Vertex AI Search instance. The agent is configured with the organization's issue categories and escalation thresholds. The portal is deployed on Google Cloud Run.</p>
+
+      <p>The full build fits within the Gemini Starter Pack service hours. Most IT teams see measurable Tier 1 deflection within the first two weeks — and have a clear picture of which knowledge base gaps to close to increase that rate further.</p>
+
+    </div>
+
+    <div class="article-divider"></div>
+
+    <div class="post-cta">
+      <div class="post-cta-inner">
+        <h3>See the IT Helpdesk Agent live.</h3>
+        <p>We will walk you through a complete Tier 1 resolution — from employee issue to closed ticket — in 20 minutes. Grounded in real IT knowledge base data.</p>
+        <a href="../../contactus/" class="btn-primary">Request a Live Demo →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-stripe"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+      <p>Google Cloud Partner helping SLED organizations activate Gemini Enterprise — from foundation to full capability.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="../../">Home</a></li>
+        <li><a href="../../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../../discovery/">Discovery &amp; Roadmap</a></li>
+        <li><a href="../../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../../ourpartners/">Our Partners</a></li>
+        <li><a href="../../peakinsights/">Peak Insights</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:info@peaktrailsconsulting.com">info@peaktrailsconsulting.com</a></li>
+        <li><a href="../../contactus/">Schedule a Conversation</a></li>
+        <li><span style="color:rgba(255,255,255,.35);">Denver, CO</span></li>
+        <li>
+          <a href="https://www.linkedin.com/company/peak-trails-consulting-llc" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;">
+            <img src="../../assets/linedin.png" alt="LinkedIn" style="height:20px;filter:brightness(0) invert(1);opacity:.6;">
+            <span>LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Peak Trails Consulting LLC · Google Cloud Partner · © 2026</span>
+    <span>Denver, CO · SLED AI Specialist</span>
+  </div>
+</footer>
+
+</body>
+</>

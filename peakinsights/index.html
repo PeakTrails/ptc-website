@@ -1,0 +1,790 @@
+<!DOCTYPE/>
+/ lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peak Insights — Peak Trails Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --nts-navy: #1a2744;
+  --g-blue:   #1a73e8;
+  --g-red:    #ea4335;
+  --g-yellow: #fbbc04;
+  --g-green:  #34a853;
+  --white:    #ffffff;
+  --off:      #f8f9fb;
+  --text:     #1e2022;
+  --muted:    #5f6368;
+  --border:   #e0e4ea;
+  --shadow:   0 4px 24px rgba(26,39,68,.10);
+  --shadow-lg:0 12px 48px rgba(26,39,68,.16);
+  --nav-h:    88px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: var(--nts-navy);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo img { height: 72px; display: block; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,.72);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,.08); }
+.nav-links a.active { color: var(--white); background: rgba(255,255,255,.1); }
+
+.nav-cta a {
+  background: var(--g-blue);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 7px;
+  transition: background .15s, transform .15s;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.nav-cta a:hover { background: #1557b0; transform: translateY(-1px); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px; height: 2px;
+  background: rgba(255,255,255,.8);
+  border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--nts-navy);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding: 16px 20px 20px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .nav-menu.open { display: flex; }
+  .nav-links { flex-direction: column; align-items: flex-start; width: 100%; }
+  .nav-links a { width: 100%; padding: 10px 12px; }
+  .nav-cta { width: 100%; margin-top: 8px; }
+  .nav-cta a { display: block; text-align: center; padding: 10px 18px; margin-left: 0; }
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: fixed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,39,68,.92) 0%, rgba(26,39,68,.80) 50%, rgba(15,30,70,.70) 100%);
+  pointer-events: none;
+}
+
+.hero-bar {
+  height: 6px;
+  background: linear-gradient(90deg,
+    var(--g-blue) 0%, var(--g-blue) 25%,
+    var(--g-red) 25%, var(--g-red) 50%,
+    var(--g-yellow) 50%, var(--g-yellow) 75%,
+    var(--g-green) 75%, var(--g-green) 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 40px 64px;
+  width: 100%;
+  flex: 1;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,115,232,.25);
+  border: 1px solid rgba(26,115,232,.4);
+  border-radius: 24px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a8c8f8;
+  margin-bottom: 24px;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #4fc3f7;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:.5; transform:scale(1.4); }
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(30px, 4.5vw, 54px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  max-width: 680px;
+}
+
+.hero h1 em { font-style: italic; color: #7cb9ff; }
+
+.hero-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,.65);
+  max-width: 520px;
+  line-height: 1.75;
+}
+
+/* ── PILLAR FILTER BAR ── */
+.filter-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+}
+
+.filter-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filter-inner::-webkit-scrollbar { display: none; }
+
+.filter-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .15s;
+}
+
+.filter-btn:hover { border-color: var(--g-blue); color: var(--g-blue); }
+.filter-btn.active { background: var(--nts-navy); border-color: var(--nts-navy); color: var(--white); }
+
+/* ── CONTENT AREA ── */
+#insights {
+  padding: 64px 40px 80px;
+  background: var(--off);
+}
+
+.insights-inner { max-width: 1200px; margin: 0 auto; }
+
+/* Featured post */
+.featured-post {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transition: box-shadow .2s, transform .15s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured-post:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.featured-visual {
+  background: linear-gradient(135deg, #0d1f3c 0%, #1a2744 60%, #0f3460 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.featured-visual-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+}
+
+.featured-visual-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.featured-visual-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.featured-visual-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+}
+
+.featured-content {
+  padding: 44px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.post-pillar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.post-pillar.sled    { background: rgba(26,115,232,.1); color: #1557b0; border: 1px solid rgba(26,115,232,.2); }
+.post-pillar.usecase { background: rgba(52,168,83,.1); color: #1a5c38; border: 1px solid rgba(52,168,83,.2); }
+.post-pillar.tech    { background: rgba(156,39,176,.1); color: #6a1b9a; border: 1px solid rgba(156,39,176,.2); }
+
+.featured-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--g-blue);
+  margin-bottom: 12px;
+}
+
+.featured-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 400;
+  color: var(--nts-navy);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.featured-excerpt {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.post-meta-dot {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--g-blue);
+  transition: gap .15s;
+}
+
+.featured-post:hover .read-more { gap: 10px; }
+
+/* Posts grid */
+.posts-grid-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.post-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: box-shadow .2s, transform .15s;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.post-card-visual {
+  height: 140px;
+  background: linear-gradient(135deg, #0d1f3c 0%, #1a2744 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+}
+
+.post-card-visual-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+}
+
+.post-card-visual-icon {
+  position: relative;
+  z-index: 2;
+}
+
+.post-card-body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.post-card-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--nts-navy);
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.post-card-excerpt {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.post-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 64px 40px;
+  color: var(--muted);
+}
+
+.empty-state-icon { font-size: 48px; margin-bottom: 16px; }
+.empty-state h3 { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--nts-navy); margin-bottom: 8px; }
+.empty-state p  { font-size: 14px; line-height: 1.7; max-width: 400px; margin: 0 auto; }
+
+/* ── FOOTER ── */
+footer {
+  background: #0d1520;
+  color: rgba(255,255,255,.35);
+  padding: 0 40px 28px;
+  font-size: 13px;
+}
+
+.footer-stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--g-blue) 0%, var(--g-blue) 25%,
+    var(--g-red) 25%, var(--g-red) 50%,
+    var(--g-yellow) 50%, var(--g-yellow) 75%,
+    var(--g-green) 75%, var(--g-green) 100%);
+  margin-bottom: 48px;
+}
+
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.footer-brand img { height: 48px; margin-bottom: 16px; display: block; }
+.footer-brand p   { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.7; max-width: 240px; }
+.footer-col h5    { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px; }
+.footer-col ul    { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a  { font-size: 13px; color: rgba(255,255,255,.4); text-decoration: none; transition: color .15s; }
+.footer-col ul a:hover { color: rgba(255,255,255,.8); }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255,255,255,.25); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .featured-post { grid-template-columns: 1fr; }
+  .featured-visual { min-height: 200px; }
+}
+
+@media (max-width: 768px) {
+  #insights { padding: 40px 20px 64px; }
+  .hero-inner { padding: 40px 20px 48px; }
+  .filter-bar { padding: 0 20px; }
+  .featured-content { padding: 28px 24px; }
+  .posts-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">
+      <img src="../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+    </a>
+    <div class="nav-toggle" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="../">Home</a></li>
+        <li><a href="../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../discovery/">Discovery &amp; Roadmap</a></li>
+        <li><a href="../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../ourpartners/">Our Partners</a></li>
+        <li><a href="../peakinsights/" class="active">Peak Insights</a></li>
+        <li class="nav-cta"><a href="../contactus/">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Peak Insights</div>
+    <h1>Perspectives on<br><em>AI in the public sector.</em></h1>
+    <p class="hero-sub">Short, sharp briefings on AI strategy, use cases, and technology — written for SLED leaders who need signal, not noise.</p>
+  </div>
+</div>
+
+<!-- ── FILTER BAR ── -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" onclick="filterPosts('all', this)">All Posts</button>
+    <button class="filter-btn" onclick="filterPosts('sled', this)">SLED AI Briefings</button>
+    <button class="filter-btn" onclick="filterPosts('usecase', this)">Use Case Spotlights</button>
+    <button class="filter-btn" onclick="filterPosts('tech', this)">Technology Perspectives</button>
+  </div>
+</div>
+
+<!-- ── CONTENT ── -->
+<section id="insights">
+  <div class="insights-inner">
+
+    <!-- Featured post -->
+    <a href="../posts/building-operations-ai-agent/" class="featured-post" data-pillar="usecase">
+      <div class="featured-visual">
+        <div class="featured-visual-bg"></div>
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--g-blue) 0%,var(--g-blue) 25%,var(--g-red) 25%,var(--g-red) 50%,var(--g-yellow) 50%,var(--g-yellow) 75%,var(--g-green) 75%,var(--g-green) 100%);z-index:3;"></div>
+        <div class="featured-visual-content">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:20px;display:block;margin-left:auto;margin-right:auto;">
+            <rect x="8" y="16" width="56" height="44" rx="4" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+            <rect x="8" y="16" width="56" height="10" rx="4" fill="rgba(255,255,255,.12)"/>
+            <circle cx="16" cy="21" r="2.5" fill="#ea4335"/>
+            <circle cx="24" cy="21" r="2.5" fill="#fbbc04"/>
+            <circle cx="32" cy="21" r="2.5" fill="#34a853"/>
+            <rect x="16" y="34" width="18" height="3" rx="1.5" fill="rgba(255,255,255,.35)"/>
+            <rect x="16" y="41" width="26" height="2" rx="1" fill="rgba(255,255,255,.2)"/>
+            <rect x="16" y="46" width="22" height="2" rx="1" fill="rgba(255,255,255,.2)"/>
+            <rect x="38" y="32" width="18" height="18" rx="3" fill="rgba(26,115,232,.3)" stroke="rgba(26,115,232,.5)" stroke-width="1"/>
+            <path d="M44 41 L47 44 L53 38" stroke="#34a853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="featured-visual-label">Use Case Spotlight</div>
+        </div>
+      </div>
+      <div class="featured-content">
+        <div class="featured-label">Featured · Latest Post</div>
+        <div class="post-pillar usecase">Use Case Spotlight</div>
+        <div class="featured-title">Your Facilities Team Is One Work Order Away From a Better Way to Work</div>
+        <div class="post-meta">
+          <span>Mark Hardy</span>
+          <div class="post-meta-dot"></div>
+          <span>April 2026</span>
+          <div class="post-meta-dot"></div>
+          <span>4 min read</span>
+        </div>
+        <div class="featured-excerpt">Brightly has no native AI intake. Technicians still track down asset history manually before every dispatch. A Building Operations AI Portal changes both — with a conversational occupant intake and a single-button pre-dispatch briefing grounded in your actual facility data.</div>
+        <div class="read-more">Read the spotlight →</div>
+      </div>
+    </a>
+
+    <!-- Posts grid — add future posts here -->
+    <div class="posts-grid-label">All Posts</div>
+    <div class="posts-grid" id="postsGrid">
+
+      <a href="../posts/building-operations-ai-agent/" class="post-card" data-pillar="usecase">
+        <div class="post-card-visual">
+          <div class="post-card-visual-bg"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g-blue) 0%,var(--g-blue) 25%,var(--g-red) 25%,var(--g-red) 50%,var(--g-yellow) 50%,var(--g-yellow) 75%,var(--g-green) 75%,var(--g-green) 100%);z-index:3;"></div>
+          <svg class="post-card-visual-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="10" width="40" height="32" rx="3" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.18)" stroke-width="1.5"/>
+            <rect x="4" y="10" width="40" height="8" rx="3" fill="rgba(255,255,255,.1)"/>
+            <rect x="10" y="24" width="12" height="2" rx="1" fill="rgba(255,255,255,.3)"/>
+            <rect x="10" y="29" width="18" height="1.5" rx=".75" fill="rgba(255,255,255,.18)"/>
+            <rect x="10" y="33" width="14" height="1.5" rx=".75" fill="rgba(255,255,255,.18)"/>
+            <rect x="26" y="22" width="12" height="12" rx="2" fill="rgba(52,168,83,.25)" stroke="rgba(52,168,83,.45)" stroke-width="1"/>
+            <path d="M29 28 L31.5 30.5 L35 26" stroke="#34a853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="post-card-body">
+          <div class="post-pillar usecase">Use Case Spotlight</div>
+          <div class="post-card-title">Your Facilities Team Is One Work Order Away From a Better Way to Work</div>
+          <div class="post-card-excerpt">Brightly has no native AI intake. A Building Operations Portal changes occupant intake and technician dispatch — grounded in your facility data.</div>
+          <div class="post-card-footer">
+            <div class="post-meta">
+              <span>April 2026</span>
+              <div class="post-meta-dot"></div>
+              <span>4 min read</span>
+            </div>
+            <div class="read-more" style="font-size:12px;">Read →</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="../posts/it-helpdesk-ai-agent/" class="post-card" data-pillar="usecase">
+        <div class="post-card-visual">
+          <div class="post-card-visual-bg"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g-blue) 0%,var(--g-blue) 25%,var(--g-red) 25%,var(--g-red) 50%,var(--g-yellow) 50%,var(--g-yellow) 75%,var(--g-green) 75%,var(--g-green) 100%);z-index:3;"></div>
+          <svg class="post-card-visual-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="8" width="36" height="26" rx="3" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.18)" stroke-width="1.5"/>
+            <rect x="10" y="14" width="20" height="2" rx="1" fill="rgba(255,255,255,.3)"/>
+            <rect x="10" y="19" width="14" height="1.5" rx=".75" fill="rgba(255,255,255,.18)"/>
+            <rect x="10" y="23" width="18" height="1.5" rx=".75" fill="rgba(255,255,255,.18)"/>
+            <rect x="10" y="27" width="10" height="1.5" rx=".75" fill="rgba(255,255,255,.18)"/>
+            <path d="M18 34 L24 40 L30 34" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linejoin="round"/>
+            <circle cx="34" cy="14" r="6" fill="rgba(26,115,232,.3)" stroke="rgba(26,115,232,.5)" stroke-width="1"/>
+            <path d="M31.5 14 L33.5 16 L37 12" stroke="#1a73e8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="post-card-body">
+          <div class="post-pillar usecase">Use Case Spotlight</div>
+          <div class="post-card-title">What Happens When Your IT Helpdesk Can Answer Before the Ticket Is Filed</div>
+          <div class="post-card-excerpt">Most Tier 1 tickets follow the same resolution path every time. An IT helpdesk agent handles the loop — and creates a structured ServiceNow ticket when it can't.</div>
+          <div class="post-card-footer">
+            <div class="post-meta">
+              <span>April 2026</span>
+              <div class="post-meta-dot"></div>
+              <span>4 min read</span>
+            </div>
+            <div class="read-more" style="font-size:12px;">Read →</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="../posts/what-shadow-ai-costs-your-organization/" class="post-card" data-pillar="sled">
+        <div class="post-card-visual">
+          <div class="post-card-visual-bg"></div>
+          <div class="post-card-visual-icon">💸</div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-pillar sled">SLED AI Briefing</div>
+          <div class="post-card-title">What Shadow AI Is Actually Costing Your Organization</div>
+          <div class="post-card-excerpt">Most SLED organizations say they don't have an AI budget. The money is already there — just invisible to IT.</div>
+          <div class="post-card-footer">
+            <div class="post-meta">
+              <span>January 2026</span>
+              <div class="post-meta-dot"></div>
+              <span>4 min read</span>
+            </div>
+            <div class="read-more" style="font-size:12px;">Read →</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-stripe"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+      <p>Google Cloud Partner helping SLED organizations activate Gemini Enterprise — from foundation to full capability.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../discovery/">Discovery &amp; Roadmap</a></li>
+        <li><a href="../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../ourpartners/">Our Partners</a></li>
+        <li><a href="../peakinsights/">Peak Insights</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:info@peaktrailsconsulting.com">info@peaktrailsconsulting.com</a></li>
+        <li><a href="../contactus/">Schedule a Conversation</a></li>
+        <li><span style="color:rgba(255,255,255,.35);">Denver, CO</span></li>
+        <li>
+          <a href="https://www.linkedin.com/company/peak-trails-consulting-llc" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;">
+            <img src="../assets/linedin.png" alt="LinkedIn" style="height:20px;filter:brightness(0) invert(1);opacity:.6;">
+            <span>LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Peak Trails Consulting LLC · Google Cloud Partner · © 2026</span>
+    <span>Denver, CO · SLED AI Specialist</span>
+  </div>
+</footer>
+
+<script>
+function filterPosts(pillar, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const featured = document.querySelector('.featured-post');
+  const cards    = document.querySelectorAll('.post-card[data-pillar]');
+
+  if (pillar === 'all') {
+    featured.style.display = '';
+    cards.forEach(c => c.style.display = '');
+  } else {
+    featured.style.display = featured.dataset.pillar === pillar ? '' : 'none';
+    cards.forEach(c => { c.style.display = c.dataset.pillar === pillar ? '' : 'none'; });
+  }
+}
+</script>
+
+</body>
+</>

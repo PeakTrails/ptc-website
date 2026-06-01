@@ -1,0 +1,1060 @@
+<!DOCTYPE/>
+/ lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peak Trails Consulting — Agentic AI Framework</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --nts-navy: #1a2744;
+  --nts-olive: #5a6b2a;
+  --g-blue: #1a73e8;
+  --g-red: #ea4335;
+  --g-yellow: #fbbc04;
+  --g-green: #34a853;
+  --white: #ffffff;
+  --off: #f8f9fb;
+  --text: #1e2022;
+  --muted: #5f6368;
+  --border: #e0e4ea;
+  --shadow: 0 4px 24px rgba(26,39,68,.10);
+  --shadow-lg: 0 12px 48px rgba(26,39,68,.16);
+  --nav-h: 88px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: var(--nts-navy);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo img { height: 72px; display: block; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,.72);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,.08); }
+.nav-links a.active { color: var(--white); background: rgba(255,255,255,.1); }
+
+.nav-cta a {
+  background: var(--g-blue);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 7px;
+  transition: background .15s, transform .15s;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.nav-cta a:hover { background: #1557b0; transform: translateY(-1px); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px; height: 2px;
+  background: rgba(255,255,255,.8);
+  border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--nts-navy);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding: 16px 20px 20px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .nav-menu.open { display: flex; }
+  .nav-links { flex-direction: column; align-items: flex-start; width: 100%; }
+  .nav-links a { width: 100%; padding: 10px 12px; }
+  .nav-cta { width: 100%; margin-top: 8px; }
+  .nav-cta a { display: block; text-align: center; padding: 10px 18px; margin-left: 0; }
+}
+
+/* ── HERO ── */
+.hero {
+  color: var(--white);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: fixed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,39,68,.92) 0%, rgba(26,39,68,.80) 50%, rgba(15,30,70,.70) 100%);
+  pointer-events: none;
+}
+
+.hero-bg-accents {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(26,115,232,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(52,168,83,.10) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-bar {
+  height: 6px;
+  background: linear-gradient(90deg,
+    var(--g-blue) 0%, var(--g-blue) 25%,
+    var(--g-red) 25%, var(--g-red) 50%,
+    var(--g-yellow) 50%, var(--g-yellow) 75%,
+    var(--g-green) 75%, var(--g-green) 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 40px 64px;
+  width: 100%;
+  flex: 1;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,115,232,.25);
+  border: 1px solid rgba(26,115,232,.4);
+  border-radius: 24px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a8c8f8;
+  margin-bottom: 20px;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #4fc3f7;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(1.4); }
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+.hero h1 em { font-style: italic; color: #7cb9ff; }
+
+.hero-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,.65);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--g-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 13px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  box-shadow: 0 2px 12px rgba(26,115,232,.4);
+}
+.btn-primary:hover { background: #1557b0; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,115,232,.5); }
+
+.btn-outline {
+  background: transparent;
+  color: rgba(255,255,255,.85);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 8px;
+  padding: 13px 28px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color .2s, background .2s, transform .15s;
+}
+.btn-outline:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.07); transform: translateY(-1px); }
+
+/* ── LOGO STRIP ── */
+.logo-strip {
+  background: #ffffff;
+  border-top: 1px solid #e8eaed;
+  border-bottom: 1px solid #e8eaed;
+  width: 100%;
+}
+
+.logo-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-slot {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 0 20px;
+}
+
+.logo-strip-divider { width: 1px; height: 52px; background: #e0e4ea; flex-shrink: 0; }
+
+.ls-img { display: block; width: auto; }
+.ls-nts  { height: 52px; }
+.ls-gc   { height: 38px; }
+.ls-ptc  { height: 56px; }
+
+.ls-ptc-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  color: #1a2744;
+  line-height: 1.25;
+  letter-spacing: -.2px;
+}
+
+/* ── LIVE DEMOS STRIP ── */
+.demos-strip {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+}
+
+.demos-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 40px 20px;
+}
+
+.demos-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.demos-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+.demos-counter { font-size: 11px; color: var(--muted); font-weight: 500; }
+
+.demos-slider-wrap { overflow: hidden; position: relative; }
+
+.demos-track {
+  display: flex;
+  gap: 16px;
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+
+.demo-card {
+  flex: 0 0 calc(50% - 8px);
+  min-width: 0;
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: box-shadow .2s, transform .15s, border-color .2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  border-radius: 12px 0 0 12px;
+}
+
+.demo-card.it::before       { background: var(--g-blue); }
+.demo-card.permit::before   { background: var(--g-green); }
+.demo-card.bldg-tech::before{ background: var(--g-red); }
+.demo-card.bldg-occ::before { background: var(--g-yellow); }
+.demo-card.hr::before       { background: #9c27b0; }
+
+.demo-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-color: #c0cde8; }
+
+.demo-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.demo-icon.it         { background: rgba(26,115,232,.1); }
+.demo-icon.permit     { background: rgba(52,168,83,.1); }
+.demo-icon.bldg-tech  { background: rgba(234,67,53,.1); }
+.demo-icon.bldg-occ   { background: rgba(251,188,4,.15); }
+.demo-icon.hr         { background: rgba(156,39,176,.1); }
+
+.demo-info { flex: 1; min-width: 0; }
+.demo-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.demo-desc  { font-size: 12px; color: var(--muted); }
+
+.demo-badge { font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+.demo-badge.live { background: rgba(52,168,83,.12); color: #1e7e34; }
+
+.demo-arrow { font-size: 16px; color: var(--muted); transition: transform .2s, color .2s; flex-shrink: 0; }
+.demo-card:hover .demo-arrow { transform: translateX(4px); color: var(--g-blue); }
+
+.demos-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; padding-bottom: 4px; }
+.demos-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); border: none; padding: 0; cursor: pointer; transition: background .25s, transform .2s; }
+.demos-dot.active { background: var(--g-blue); transform: scale(1.3); }
+
+/* ── SECTION SHARED ── */
+section { padding: 80px 40px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--g-blue); margin-bottom: 12px; }
+
+.section-title { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 4vw, 40px); font-weight: 400; line-height: 1.15; color: var(--nts-navy); margin-bottom: 16px; }
+
+.section-sub { font-size: 16px; color: var(--muted); max-width: 600px; line-height: 1.7; margin-bottom: 48px; }
+
+/* ── PLATFORM DIAGRAM ── */
+#platform { background: var(--off); }
+
+.platform-diagram { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 40px; box-shadow: var(--shadow); overflow: hidden; }
+
+.silos-section { margin-bottom: 32px; }
+
+.silos-label { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; position: relative; }
+.silos-label::before, .silos-label::after { content: ''; position: absolute; top: 50%; width: calc(50% - 90px); height: 1px; background: var(--border); }
+.silos-label::before { left: 0; }
+.silos-label::after { right: 0; }
+
+.silos-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+
+.silo { background: var(--off); border: 1px solid var(--border); border-radius: 10px; padding: 10px 16px; font-size: 12px; font-weight: 600; color: var(--nts-navy); text-align: center; min-width: 100px; display: flex; flex-direction: column; align-items: center; gap: 6px; transition: border-color .2s, box-shadow .2s; }
+
+.silo-icon { width: 32px; height: 32px; border-radius: 6px; background: linear-gradient(135deg, #c8d5e8, #a8b8d0); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+
+.connector-bar { width: 100%; max-width: 820px; background: rgba(251,188,4,.15); border: 1.5px solid rgba(251,188,4,.4); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #8a6a00; gap: 8px; margin: 12px auto; height: 36px; }
+
+.platform-core { background: linear-gradient(135deg, #f0f4ff 0%, #f8fff4 100%); border: 2px solid var(--g-blue); border-radius: 16px; padding: 28px; margin: 4px 0; }
+
+.platform-core-label { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--g-blue); margin-bottom: 20px; }
+
+.lifecycle-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+
+.lifecycle-step { border-radius: 10px; padding: 16px; text-align: center; }
+.lifecycle-step.build   { background: var(--g-red); color: var(--white); }
+.lifecycle-step.connect { background: var(--g-blue); color: var(--white); }
+.lifecycle-step.deploy  { background: var(--g-green); color: var(--white); }
+.lifecycle-step.operate { background: #d935ff; color: var(--white); }
+
+.lifecycle-step h4 { font-size: 13px; font-weight: 700; margin-bottom: 8px; letter-spacing: .5px; }
+.lifecycle-bullets { list-style: none; font-size: 10.5px; opacity: .9; line-height: 1.7; text-align: left; }
+
+.platform-branding { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid rgba(26,115,232,.2); flex-wrap: wrap; gap: 12px; }
+
+.gc-badge { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); font-weight: 500; }
+.gc-icon { width: 20px; height: 20px; background: conic-gradient(var(--g-blue) 0deg 90deg, var(--g-red) 90deg 180deg, var(--g-yellow) 180deg 270deg, var(--g-green) 270deg 360deg); border-radius: 50%; }
+
+.gemini-badge { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--nts-navy); }
+.gem-icon { width: 16px; height: 16px; background: linear-gradient(135deg, #4285f4, #9c27b0); border-radius: 3px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+
+.output-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; margin-top: 20px; }
+
+.output-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; box-shadow: var(--shadow); }
+.output-card h4 { font-size: 13px; font-weight: 700; color: var(--nts-navy); margin-bottom: 6px; }
+.output-card p  { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+.output-icon { font-size: 28px; margin-bottom: 10px; }
+
+.agents-center { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+
+.agent-bubble { width: 60px; height: 60px; background: linear-gradient(135deg, var(--g-blue), #9c27b0); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 4px 16px rgba(26,115,232,.35); animation: float 3s ease-in-out infinite; }
+.agent-bubble:nth-child(2) { background: linear-gradient(135deg, var(--g-green), var(--g-blue)); animation-delay: .5s; }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+.agent-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+
+/* ── WORKFLOW SECTION ── */
+#workflow { background: var(--white); }
+
+.workflow-container { display: flex; align-items: flex-start; gap: 48px; flex-wrap: wrap; }
+.workflow-diagram { flex: 1; min-width: 320px; }
+
+.flow { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.flow-row { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; }
+
+.flow-node { border-radius: 10px; padding: 12px 18px; text-align: center; font-size: 12px; font-weight: 600; min-width: 130px; max-width: 180px; line-height: 1.3; box-shadow: 0 2px 10px rgba(0,0,0,.08); transition: transform .2s, box-shadow .2s; }
+.flow-node:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.14); }
+
+.flow-node.user     { background: #dce8fb; border: 1.5px solid #94b8ef; color: #1a3a6b; }
+.flow-node.agent    { background: #fce8e6; border: 1.5px solid #f5a09a; color: #6b1a1a; }
+.flow-node.decide   { background: #fff3cd; border: 1.5px solid #ffc107; color: #664d00; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); padding: 18px 10px; min-width: 110px; }
+.flow-node.result   { background: #d7f0e0; border: 1.5px solid #7dca9e; color: #1a5c38; }
+.flow-node.ticket   { background: #fce8e6; border: 1.5px solid #f5a09a; color: #6b1a1a; }
+.flow-node.feedback { background: #dce8fb; border: 1.5px solid #94b8ef; color: #1a3a6b; }
+.flow-node.analytics{ background: #fce8e6; border: 1.5px solid #f5a09a; color: #6b1a1a; }
+
+.flow-node .fn-icon { font-size: 16px; margin-bottom: 4px; display: block; }
+
+.datastores { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; justify-content: center; }
+.ds-pill { background: #fffde7; border: 1.5px solid #ffc107; border-radius: 20px; padding: 5px 12px; font-size: 11px; font-weight: 600; color: #664d00; display: flex; align-items: center; gap: 5px; }
+
+.flow-arrow { font-size: 18px; color: var(--muted); line-height: 1; margin: 4px 0; text-align: center; }
+.flow-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; margin: 2px 0; }
+.flow-label.yes { color: var(--g-green); }
+.flow-label.no  { color: var(--g-red); }
+
+.workflow-legend { flex: 0 0 280px; min-width: 240px; }
+.legend-title { font-size: 13px; font-weight: 700; color: var(--nts-navy); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.legend-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+.legend-swatch { width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+.legend-swatch.user     { background: #dce8fb; border: 1.5px solid #94b8ef; }
+.legend-swatch.agent    { background: #fce8e6; border: 1.5px solid #f5a09a; }
+.legend-swatch.decision { background: #fff3cd; border: 1.5px solid #ffc107; }
+.legend-swatch.positive { background: #d7f0e0; border: 1.5px solid #7dca9e; }
+.legend-text { font-size: 13px; color: var(--text); }
+.legend-text strong { font-weight: 700; }
+
+/* ── CAPABILITIES ── */
+#capabilities {
+  position: relative;
+  color: var(--white);
+}
+
+#capabilities .caps-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: fixed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+#capabilities .caps-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,39,68,.92) 0%, rgba(26,39,68,.80) 50%, rgba(15,30,70,.70) 100%);
+  pointer-events: none;
+}
+
+#capabilities .section-inner { position: relative; z-index: 2; }
+#capabilities .section-title   { color: var(--white); }
+#capabilities .section-eyebrow { color: #7cb9ff; }
+#capabilities .section-sub     { color: rgba(255,255,255,.55); }
+
+.caps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+
+.cap-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 24px 20px; transition: background .2s, border-color .2s, transform .15s; }
+.cap-card:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2); transform: translateY(-2px); }
+.cap-icon { font-size: 28px; margin-bottom: 14px; }
+.cap-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
+.cap-card p  { font-size: 12.5px; color: rgba(255,255,255,.5); line-height: 1.6; }
+
+/* ── FOOTER ── */
+footer {
+  background: #0d1520;
+  color: rgba(255,255,255,.35);
+  padding: 0 40px 28px;
+  font-size: 13px;
+}
+
+.footer-stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--g-blue) 0%, var(--g-blue) 25%,
+    var(--g-red) 25%, var(--g-red) 50%,
+    var(--g-yellow) 50%, var(--g-yellow) 75%,
+    var(--g-green) 75%, var(--g-green) 100%);
+  margin-bottom: 48px;
+}
+
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.footer-brand img { height: 48px; margin-bottom: 16px; display: block; }
+.footer-brand p   { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.7; max-width: 240px; }
+.footer-col h5    { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px; }
+.footer-col ul    { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a  { font-size: 13px; color: rgba(255,255,255,.4); text-decoration: none; transition: color .15s; }
+.footer-col ul a:hover { color: rgba(255,255,255,.8); }
+
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255,255,255,.25); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  section { padding: 56px 24px; }
+  .hero-inner { padding: 40px 24px 48px; }
+  .lifecycle-grid { grid-template-columns: 1fr 1fr; }
+  .output-row { grid-template-columns: 1fr; }
+  .workflow-container { flex-direction: column; }
+  .workflow-legend { flex: unset; width: 100%; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .logo-strip-inner { flex-direction: column; gap: 24px; padding: 28px 24px; }
+  .logo-strip-divider { width: 80px; height: 1px; }
+  .demos-inner { padding: 20px 20px 16px; }
+  .demo-card { flex: 0 0 calc(100% - 0px); }
+}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.fade-up { opacity: 0; animation: fadeUp .6s ease forwards; }
+.fade-up:nth-child(1) { animation-delay: .1s; }
+.fade-up:nth-child(2) { animation-delay: .2s; }
+.fade-up:nth-child(3) { animation-delay: .3s; }
+.fade-up:nth-child(4) { animation-delay: .4s; }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">
+      <img src="../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+    </a>
+    <div class="nav-toggle" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="../">Home</a></li>
+        <li><a href="../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../discovery/">Discovery &amp; Roadmap</a></li>
+        <li><a href="../agenticframework/" class="active">Agent Solutions</a></li>
+        <li><a href="../ourpartners/">Our Partners</a></li>
+        <li><a href="../peakinsights/">Peak Insights</a></li>
+        <li class="nav-cta"><a href="../contactus/">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-bg-accents"></div>
+  <div class="hero-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Agentic AI Platform</div>
+    <h1>A Configurable <em>Agentic</em><br>Framework That Connects Your Data Silos</h1>
+    <p class="hero-sub">One platform. Reusable template. Any department. Rapid prototype.</p>
+    <div class="hero-ctas">
+      <a href="#platform" class="btn-primary"><span>↓</span> See the Platform</a>
+      <a href="#demos" class="btn-outline"><span>▶</span> View Live Demos</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── LOGO STRIP ── -->
+<div class="logo-strip">
+  <div class="logo-strip-inner">
+    <div class="logo-slot">
+      <img src="../assets/ntscalogo.png" alt="New Tech Solutions" class="ls-img ls-nts">
+    </div>
+    <div class="logo-strip-divider"></div>
+    <div class="logo-slot">
+      <img src="../assets/logo_googleCloud.png" alt="Google Cloud" class="ls-img ls-gc">
+    </div>
+    <div class="logo-strip-divider"></div>
+    <div class="logo-slot">
+      <img src="../assets/PTCLogowTextRight.png" alt="Peak Trails Consulting" class="ls-img ls-ptc">
+    </div>
+  </div>
+</div>
+
+<!-- ── LIVE DEMOS STRIP ── -->
+<div class="demos-strip" id="demos">
+  <div class="demos-inner">
+    <div class="demos-header">
+      <div class="demos-label">Live Demos</div>
+      <div class="demos-counter" id="demos-counter"></div>
+    </div>
+    <div class="demos-slider-wrap">
+      <div class="demos-track" id="demos-track"></div>
+    </div>
+    <div class="demos-dots" id="demos-dots"></div>
+  </div>
+</div>
+
+<!-- ── PLATFORM ARCHITECTURE ── -->
+<section id="platform">
+  <div class="section-inner">
+    <div class="section-eyebrow">Architecture</div>
+    <h2 class="section-title">One platform. Reusable template. Any department. Every service.</h2>
+    <p class="section-sub">Your existing systems stay in place. AI agents connect to them through a centralized platform — grounded in your data, governed by your policies, deployed in your infrastructure.</p>
+
+    <div class="platform-diagram">
+
+      <div class="silos-section">
+        <div class="silos-label">Internal Information Silos — Client Systems</div>
+        <div class="silos-row">
+          <div class="silo"><div class="silo-icon">🎫</div>Ticket Management</div>
+          <div class="silo"><div class="silo-icon">🌐</div>Website / CMS</div>
+          <div class="silo"><div class="silo-icon">🏛️</div>Courts</div>
+          <div class="silo"><div class="silo-icon">🏗️</div>Permits</div>
+          <div class="silo"><div class="silo-icon">📹</div>Tax and Revenue</div>
+          <div class="silo"><div class="silo-icon">🏢</div>Building Automation</div>
+          <div class="silo"><div class="silo-icon">📁</div>Records and Policies</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:16px;">
+        <div style="width:2px;height:16px;background:rgba(251,188,4,.5);"></div>
+        <div class="connector-bar"><span>⚡</span> Connectors &amp; APIs</div>
+        <div style="width:2px;height:16px;background:rgba(26,115,232,.5);"></div>
+      </div>
+
+      <div class="platform-core">
+        <div class="platform-core-label">🤖 Google Cloud AI Platform — Vertex AI + Gemini Enterprise</div>
+        <div class="lifecycle-grid">
+          <div class="lifecycle-step build">
+            <h4>Build</h4>
+            <ul class="lifecycle-bullets">
+              <li>No-code prototyping</li>
+              <li>Prompt tuning</li>
+              <li>Agent Development Kit</li>
+              <li>Iteration &amp; testing</li>
+              <li>130+ model choices</li>
+            </ul>
+          </div>
+          <div class="lifecycle-step connect">
+            <h4>Connect</h4>
+            <ul class="lifecycle-bullets">
+              <li>Enterprise data grounding</li>
+              <li>Data caching</li>
+              <li>Testing framework</li>
+              <li>RAG over your docs</li>
+            </ul>
+          </div>
+          <div class="lifecycle-step deploy">
+            <h4>Deploy</h4>
+            <ul class="lifecycle-bullets">
+              <li>One-click deployment</li>
+              <li>FedRAMP security</li>
+              <li>Multi-language</li>
+              <li>ADA / WCAG</li>
+            </ul>
+          </div>
+          <div class="lifecycle-step operate">
+            <h4>Operate</h4>
+            <ul class="lifecycle-bullets">
+              <li>Agent evaluation</li>
+              <li>Agent monitoring</li>
+              <li>Dashboards &amp; reports</li>
+              <li>Continuous improvement</li>
+            </ul>
+          </div>
+        </div>
+        <div class="platform-branding">
+          <div class="gc-badge"><div class="gc-icon"></div><span>Google Cloud</span></div>
+          <div class="gemini-badge"><div class="gem-icon"></div><span>Gemini Enterprise</span></div>
+          <div style="font-size:11px;color:var(--muted);">Zero vendor lock-in · Open Garden strategy · 130+ models</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;margin:16px 0;">
+        <div style="width:2px;height:16px;background:rgba(26,115,232,.4);"></div>
+        <div style="font-size:18px;color:var(--g-blue);">▼</div>
+      </div>
+
+      <div class="output-row">
+        <div class="output-card">
+          <div class="output-icon">🏙️</div>
+          <h4>Citizen Services</h4>
+          <p>Residents, permit applicants, taxpayers — 24/7 self-service without hold times</p>
+        </div>
+        <div class="agents-center">
+          <div class="agent-bubble">🤖</div>
+          <div style="height:8px;width:2px;background:var(--border);margin:4px auto;"></div>
+          <div class="agent-bubble">🤖</div>
+          <div class="agent-label">AI Agents</div>
+        </div>
+        <div class="output-card">
+          <div class="output-icon">👥</div>
+          <h4>Internal Staff</h4>
+          <p>Employees, vendors, IT staff — instant answers grounded in policy and procedure</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── WORKFLOW ── -->
+<section id="workflow">
+  <div class="section-inner">
+    <div class="section-eyebrow">Agent Workflow</div>
+    <h2 class="section-title">How Every Agent Works</h2>
+    <p class="section-sub">The same workflow pattern powers every vertical. The agent searches your data first, resolves what it can, and escalates the rest — with every interaction captured for analytics.</p>
+
+    <div class="workflow-container">
+      <div class="workflow-diagram">
+        <div class="flow">
+          <div class="flow-row">
+            <div class="flow-node user"><span class="fn-icon">⌨️</span>End user enters issue into Agent</div>
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-row" style="flex-direction:column;align-items:center;gap:10px;">
+            <div class="flow-node agent"><span class="fn-icon">🧠</span>Agent Processes Request</div>
+            <div class="datastores">
+              <div class="ds-pill">📚 Knowledge Base</div>
+              <div class="ds-pill">🔗 Vendor URLs</div>
+              <div class="ds-pill">📋 Policy Store</div>
+            </div>
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-row">
+            <div class="flow-node decide" style="font-size:11px;">Result<br>Found?</div>
+          </div>
+          <div style="display:flex;width:100%;max-width:400px;align-items:flex-start;gap:0;margin:0 auto;">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0;">
+              <div style="width:50%;height:2px;background:var(--border);margin-left:50%;"></div>
+              <div style="width:2px;height:16px;background:var(--border);"></div>
+              <div class="flow-label yes">Yes →</div>
+              <div class="flow-node result" style="width:90%;"><span class="fn-icon">✅</span>Agent Displays Result</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0;">
+              <div style="width:50%;height:2px;background:var(--border);margin-right:50%;"></div>
+              <div style="width:2px;height:16px;background:var(--border);"></div>
+              <div class="flow-label no">← No</div>
+              <div class="flow-node ticket" style="width:90%;"><span class="fn-icon">🎫</span>Creates Support Ticket</div>
+              <div class="flow-arrow" style="font-size:14px;">↓</div>
+              <div class="flow-node ticket" style="width:90%;font-size:11px;"><span class="fn-icon">🪪</span>Displays Ticket ID to End User</div>
+            </div>
+          </div>
+          <div class="flow-arrow" style="margin-top:16px;">↓</div>
+          <div class="flow-row">
+            <div class="flow-node feedback"><span class="fn-icon">💬</span>End user feedback</div>
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-row">
+            <div class="flow-node analytics"><span class="fn-icon">📊</span>Update Analytics Dashboard</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-legend">
+        <div class="legend-title">Node Key</div>
+        <div class="legend-item">
+          <div class="legend-swatch user"></div>
+          <div class="legend-text"><strong>User Actions</strong><br>Steps initiated or seen by the employee, citizen, or applicant</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch agent"></div>
+          <div class="legend-text"><strong>Agent Processing</strong><br>Gemini-powered reasoning across your connected data stores</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch decision"></div>
+          <div class="legend-text"><strong>Decision Points</strong><br>Agent evaluates whether a self-service resolution exists</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch positive"></div>
+          <div class="legend-text"><strong>Resolution</strong><br>Issue resolved without human intervention — ticket deflected</div>
+        </div>
+
+        <div style="margin-top:24px;padding:16px;background:var(--off);border-radius:10px;border:1px solid var(--border);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Every demo includes</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="font-size:12.5px;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--g-green);font-weight:700;">✓</span><span>Live KPI analytics dashboard</span></div>
+            <div style="font-size:12.5px;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--g-green);font-weight:700;">✓</span><span>Real-time ticket / case creation</span></div>
+            <div style="font-size:12.5px;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--g-green);font-weight:700;">✓</span><span>End-user feedback + sentiment tracking</span></div>
+            <div style="font-size:12.5px;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--g-green);font-weight:700;">✓</span><span>Grounded in client's own data — no hallucinations</span></div>
+            <div style="font-size:12.5px;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--g-green);font-weight:700;">✓</span><span>Path to production via native system connectors</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CAPABILITIES ── -->
+<section id="capabilities">
+  <div class="caps-bg-img"></div>
+  <div class="caps-bg-overlay"></div>
+  <div class="section-inner">
+    <div class="section-eyebrow">What We Deliver</div>
+    <h2 class="section-title">The Full Capability Stack</h2>
+    <p class="section-sub">From governance strategy through POCs and eventually to production deployment — we manage the full journey.</p>
+    <div class="caps-grid">
+      <div class="cap-card fade-up">
+        <div class="cap-icon">🎓</div>
+        <h4>Discovery &amp; Strategy</h4>
+        <p>8-step discovery process maps use cases to value vs. effort — surfacing quick wins in ~2 weeks</p>
+      </div>
+      <div class="cap-card fade-up">
+        <div class="cap-icon">🔒</div>
+        <h4>Governance First</h4>
+        <p>Data sovereignty, Zero Trust security, FedRAMP-ready deployment. AI built on your terms</p>
+      </div>
+      <div class="cap-card fade-up">
+        <div class="cap-icon">⚡</div>
+        <h4>Fast POC Delivery</h4>
+        <p>Working demo in days, not months. Reusable templates accelerate every new vertical</p>
+      </div>
+      <div class="cap-card fade-up">
+        <div class="cap-icon">🔗</div>
+        <h4>Native Integrations</h4>
+        <p>ServiceNow, EnerGov, Odyssey, Workday and more — no rip-and-replace required</p>
+      </div>
+      <div class="cap-card fade-up">
+        <div class="cap-icon">📊</div>
+        <h4>Measured Outcomes</h4>
+        <p>Every agent ships with a dashboard. Deflection rates, cost savings, and sentiment tracked live</p>
+      </div>
+      <div class="cap-card fade-up">
+        <div class="cap-icon">🚀</div>
+        <h4>Production Roadmap</h4>
+        <p>POC to production path defined upfront. Phased expansion across departments and services</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-stripe"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+      <p>Google Cloud Partner helping SLED organizations activate Gemini Enterprise — from foundation to full capability.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../discovery/">Discovery &amp; Roadmap</a></li>
+        <li><a href="../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../ourpartners/">Our Partners</a></li>
+        <li><a href="../peakinsights/">Peak Insights</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:info@peaktrailsconsulting.com">info@peaktrailsconsulting.com</a></li>
+        <li><a href="../contactus/">Schedule a Conversation</a></li>
+        <li><span style="color:rgba(255,255,255,.35);">Denver, CO</span></li>
+        <li>
+          <a href="https://www.linkedin.com/company/peak-trails-consulting-llc" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;">
+            <img src="../assets/linedin.png" alt="LinkedIn" style="height:20px;filter:brightness(0) invert(1);opacity:.6;">
+            <span>LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Peak Trails Consulting LLC · Google Cloud Partner · © 2026</span>
+    <span>Powered by Vertex AI · Gemini Enterprise · Agent Development Kit</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+});
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if(en.isIntersecting) {
+      en.target.style.opacity = '1';
+      en.target.style.transform = 'translateY(0)';
+      obs.unobserve(en.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.cap-card, .output-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  obs.observe(el);
+});
+</script>
+
+<script>
+const DEMOS = [
+  { visible: true, href: 'https://helpdesk-dashboard-ss4mkpwb7a-uc.a.run.app', colorClass: 'it', icon: '🖥️', title: 'IT Self-Service Portal', desc: 'Municipal IT Helpdesk · Integrates with ServiceNow &amp; TeamDynamics' },
+  { visible: true, href: 'https://permit-dashboard-936284199094.us-central1.run.app', colorClass: 'permit', icon: '🏗️', title: 'Building Permit Portal', desc: 'Permit Self-Service · Integrates with Tyler Technologies EnerGov' },
+  { visible: true, href: 'https://building-ops-tech-dashboard-726631815545.us-central1.run.app/', colorClass: 'bldg-tech', icon: '🔧', title: 'Facility Management Agent', desc: 'Technician View · Integrates with Brightly' },
+  { visible: true, href: 'https://building-ops-occupant-dashboard-726631815545.us-central1.run.app/', colorClass: 'bldg-occ', icon: '🏢', title: 'Facility Management Agent', desc: 'Occupant View · Integrates with Brightly' },
+  { visible: true, href: 'https://city-assistant-dashboard-zwexpn3rra-uc.a.run.app/', colorClass: 'hr', icon: '🏙️', title: 'Citizen Portal', desc: 'Citizen 360 · Integrates with your 311 system' },
+  { visible: true, href: 'https://campus360-dashboard-954533356386.us-central1.run.app/', colorClass: 'permit', icon: '🎓', title: 'Campus Portal', desc: 'Campus 360 · Integrates with your student systems' },
+];
+
+(function() {
+  const CARDS_PER_PAGE = window.innerWidth <= 640 ? 1 : 2;
+  const liveDemos = DEMOS.filter(d => d.visible);
+  const track     = document.getElementById('demos-track');
+  const dotsEl    = document.getElementById('demos-dots');
+  const counterEl = document.getElementById('demos-counter');
+
+  if (!track || !liveDemos.length) return;
+
+  liveDemos.forEach(d => {
+    const a = document.createElement('a');
+    a.href = d.href;
+    a.target = '_blank';
+    a.className = `demo-card ${d.colorClass}`;
+    a.innerHTML = `
+      <div class="demo-icon ${d.colorClass}">${d.icon}</div>
+      <div class="demo-info">
+        <div class="demo-title">${d.title}</div>
+        <div class="demo-desc">${d.desc}</div>
+      </div>
+      <span class="demo-badge live">Live</span>
+      <span class="demo-arrow">→</span>`;
+    track.appendChild(a);
+  });
+
+  const cards     = Array.from(track.children);
+  const perPage   = CARDS_PER_PAGE;
+  const pageCount = Math.ceil(cards.length / perPage);
+  let current     = 0;
+
+  for (let i = 0; i < pageCount; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'demos-dot' + (i === 0 ? ' active' : '');
+    btn.setAttribute('aria-label', `Page ${i + 1}`);
+    btn.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(btn);
+  }
+
+  if (pageCount <= 1) dotsEl.style.display = 'none';
+
+  function updateCounter() {
+    const from = current * perPage + 1;
+    const to   = Math.min(from + perPage - 1, cards.length);
+    counterEl.textContent = cards.length > perPage ? `${from}–${to} of ${cards.length}` : '';
+  }
+
+  function goTo(page) {
+    current = ((page % pageCount) + pageCount) % pageCount;
+    const cardWidth = cards[0].getBoundingClientRect().width;
+    const gap       = 16;
+    const offset    = current * perPage * (cardWidth + gap);
+    track.style.transform = `translateX(-${offset}px)`;
+    dotsEl.querySelectorAll('.demos-dot').forEach((d, i) => { d.classList.toggle('active', i === current); });
+    updateCounter();
+  }
+
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => { const dx = e.changedTouches[0].clientX - touchStartX; if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1); });
+
+  let autoTimer = setInterval(() => goTo(current + 1), 6000);
+  dotsEl.addEventListener('click', () => { clearInterval(autoTimer); autoTimer = null; });
+  window.addEventListener('resize', () => goTo(0));
+
+  updateCounter();
+})();
+</script>
+
+</body>
+</>

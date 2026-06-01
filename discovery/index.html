@@ -1,0 +1,950 @@
+<!DOCTYPE/>
+/ lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peak Trails Consulting — AI Discovery and Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --nts-navy: #1a2744;
+  --g-blue:   #1a73e8;
+  --g-red:    #ea4335;
+  --g-yellow: #fbbc04;
+  --g-green:  #34a853;
+  --teal:     #1D9E75;
+  --teal-l:   #E1F5EE;
+  --teal-d:   #085041;
+  --purple:   #534AB7;
+  --purple-l: #EEEDFE;
+  --purple-d: #26215C;
+  --amber:    #BA7517;
+  --amber-l:  #FAEEDA;
+  --amber-d:  #412402;
+  --white:    #ffffff;
+  --off:      #f8f9fb;
+  --text:     #1e2022;
+  --muted:    #5f6368;
+  --border:   #e0e4ea;
+  --shadow:   0 4px 24px rgba(26,39,68,.10);
+  --shadow-lg:0 12px 48px rgba(26,39,68,.16);
+  --nav-h:    88px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: var(--nts-navy);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo img { height: 72px; display: block; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,.72);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,.08); }
+.nav-links a.active { color: var(--white); background: rgba(255,255,255,.1); }
+
+.nav-cta a {
+  background: var(--g-blue);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 7px;
+  transition: background .15s, transform .15s;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.nav-cta a:hover { background: #1557b0; transform: translateY(-1px); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px; height: 2px;
+  background: rgba(255,255,255,.8);
+  border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--nts-navy);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding: 16px 20px 20px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .nav-menu.open { display: flex; }
+  .nav-links { flex-direction: column; align-items: flex-start; width: 100%; }
+  .nav-links a { width: 100%; padding: 10px 12px; }
+  .nav-cta { width: 100%; margin-top: 8px; }
+  .nav-cta a { display: block; text-align: center; padding: 10px 18px; margin-left: 0; }
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: fixed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,39,68,.92) 0%, rgba(26,39,68,.80) 50%, rgba(15,30,70,.70) 100%);
+  pointer-events: none;
+}
+
+.hero-bg-accents {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 85% 50%, rgba(26,115,232,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(52,168,83,.10) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-bar {
+  height: 6px;
+  background: linear-gradient(90deg,
+    var(--g-blue) 0%, var(--g-blue) 25%,
+    var(--g-red) 25%, var(--g-red) 50%,
+    var(--g-yellow) 50%, var(--g-yellow) 75%,
+    var(--g-green) 75%, var(--g-green) 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 40px 64px;
+  width: 100%;
+  flex: 1;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,115,232,.25);
+  border: 1px solid rgba(26,115,232,.4);
+  border-radius: 24px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a8c8f8;
+  margin-bottom: 24px;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #4fc3f7;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:.5; transform:scale(1.4); }
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(30px, 4.5vw, 54px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 680px;
+}
+
+.hero h1 em { font-style: italic; color: #7cb9ff; }
+
+.hero-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,.65);
+  max-width: 560px;
+  line-height: 1.75;
+}
+
+/* ── SECTIONS ── */
+section { padding: 80px 40px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--g-blue);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--nts-navy);
+  margin-bottom: 16px;
+}
+
+.section-title em { font-style: italic; color: var(--g-blue); }
+
+.section-sub {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 640px;
+  line-height: 1.75;
+  margin-bottom: 48px;
+}
+
+/* ── PROCESS GRAPHIC ── */
+#process { background: var(--off); }
+
+.graphic-wrap {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: var(--shadow);
+}
+
+/* ── HOW IT WORKS ── */
+#how { background: var(--white); }
+
+.how-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.phase-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.phase-label.discovery {
+  background: var(--teal-l);
+  color: var(--teal-d);
+  border: 1px solid rgba(29,158,117,.25);
+}
+
+.phase-label.priority {
+  background: var(--purple-l);
+  color: var(--purple-d);
+  border: 1px solid rgba(83,74,183,.25);
+}
+
+.step-list { display: flex; flex-direction: column; gap: 20px; }
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: box-shadow .2s, transform .15s;
+}
+
+.step-item:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
+
+.step-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-num.t { background: var(--teal-l); color: var(--teal-d); }
+.step-num.p { background: var(--purple-l); color: var(--purple-d); }
+
+.step-content h4 { font-size: 14px; font-weight: 700; color: var(--nts-navy); margin-bottom: 4px; }
+.step-content p  { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+/* ── MATRIX SECTION ── */
+#matrix { background: var(--off); }
+
+.matrix-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.deliverables-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
+
+.deliverable-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.del-check {
+  width: 22px; height: 22px;
+  background: rgba(26,115,232,.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--g-blue);
+  margin-top: 1px;
+}
+
+.deliverable-item strong { color: var(--nts-navy); font-weight: 600; }
+.deliverable-item span   { color: var(--muted); }
+
+.engagement-box {
+  background: var(--nts-navy);
+  border-radius: 16px;
+  padding: 32px;
+  color: var(--white);
+}
+
+.engagement-box h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.engagement-box p { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.7; margin-bottom: 20px; }
+
+.engagement-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 8px;
+}
+
+.engagement-detail strong { color: rgba(255,255,255,.85); }
+
+/* ── CTA ── */
+#cta {
+  padding: 80px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/mountain-bg.jpg');
+  background-size: cover;
+  background-position: center 60%;
+  background-attachment: fixed;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.cta-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13,31,60,.92) 0%, rgba(26,39,68,.82) 50%, rgba(15,52,96,.75) 100%);
+  pointer-events: none;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#cta h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+#cta p { font-size: 16px; color: rgba(255,255,255,.6); margin-bottom: 36px; line-height: 1.7; }
+
+.btn-primary {
+  background: var(--g-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  box-shadow: 0 2px 12px rgba(26,115,232,.4);
+}
+
+.btn-primary:hover { background: #1557b0; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,115,232,.5); }
+
+/* ── FOOTER ── */
+footer {
+  background: #0d1520;
+  color: rgba(255,255,255,.35);
+  padding: 0 40px 28px;
+  font-size: 13px;
+}
+
+.footer-stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--g-blue) 0%, var(--g-blue) 25%,
+    var(--g-red) 25%, var(--g-red) 50%,
+    var(--g-yellow) 50%, var(--g-yellow) 75%,
+    var(--g-green) 75%, var(--g-green) 100%);
+  margin-bottom: 48px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.footer-brand img { height: 48px; margin-bottom: 16px; display: block; }
+.footer-brand p   { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.7; max-width: 240px; }
+
+.footer-col h5 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 14px;
+}
+
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a { font-size: 13px; color: rgba(255,255,255,.4); text-decoration: none; transition: color .15s; }
+.footer-col ul a:hover { color: rgba(255,255,255,.8); }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,.25);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  section { padding: 56px 20px; }
+  .hero-inner { padding: 40px 20px 48px; }
+  .how-grid { grid-template-columns: 1fr; gap: 32px; }
+  .matrix-intro { grid-template-columns: 1fr; }
+  .graphic-wrap { padding: 20px; }
+  #cta { padding: 56px 20px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">
+      <img src="../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+    </a>
+    <div class="nav-toggle" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="../">Home</a></li>
+        <li><a href="../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../discovery/" class="active">Discovery &amp; Roadmap</a></li>
+        <li><a href="../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../ourpartners/">Our Partners</a></li>
+        <li><a href="../peakinsights/">Peak Insights</a></li>
+        <li class="nav-cta"><a href="../contactus/">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-bg-accents"></div>
+  <div class="hero-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Discovery Engagement</div>
+    <h1>Before you build anything,<br>know what is worth <em>building.</em></h1>
+    <p class="hero-sub">Most organizations have more AI opportunities than they realize — and more constraints than they expect. This engagement surfaces both, so you act on the right things first.</p>
+  </div>
+</div>
+
+<!-- ── PROCESS GRAPHIC ── -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Process</div>
+    <h2 class="section-title">Eight steps from <em>assessment</em> to action</h2>
+    <p class="section-sub">Peak Trails does the work. You participate in focused review sessions and receive a complete set of deliverables — no weeks of workshops, no internal project management required.</p>
+
+    <div class="graphic-wrap">
+      <svg width="100%" viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <text x="340" y="16" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#0F6E56">Discovery</text>
+        <rect x="20" y="26" width="140" height="90" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.8" stroke-opacity="0.6"/>
+        <text x="90" y="44" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#0F6E56">01</text>
+        <text x="90" y="63" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#085041">Discovery and</text>
+        <text x="90" y="78" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#085041">Education</text>
+        <text x="90" y="104" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#0F6E56">Align on goals</text>
+
+        <rect x="174" y="26" width="140" height="90" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.8" stroke-opacity="0.6"/>
+        <text x="244" y="44" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#0F6E56">02</text>
+        <text x="244" y="63" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#085041">Asset Inventory</text>
+        <text x="244" y="82" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#0F6E56">Catalog platforms</text>
+        <text x="244" y="98" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#0F6E56">and data sources</text>
+
+        <rect x="328" y="26" width="140" height="90" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.8" stroke-opacity="0.6"/>
+        <text x="398" y="44" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#0F6E56">03</text>
+        <text x="398" y="63" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#085041">Support Mapping</text>
+        <text x="398" y="82" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#0F6E56">Document staffing</text>
+        <text x="398" y="98" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#0F6E56">and manual work</text>
+
+        <rect x="482" y="26" width="178" height="90" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.8" stroke-opacity="0.6"/>
+        <text x="571" y="44" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#0F6E56">04</text>
+        <text x="571" y="63" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#085041">Use Case Analysis</text>
+        <text x="571" y="82" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#0F6E56">Log frequent requests</text>
+        <text x="571" y="98" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#0F6E56">and time spent</text>
+
+        <text x="340" y="140" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#3C3489">Prioritization</text>
+
+        <rect x="20" y="150" width="140" height="90" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8" stroke-opacity="0.6"/>
+        <text x="90" y="168" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#534AB7">05</text>
+        <text x="90" y="187" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#26215C">Value Scoring</text>
+        <text x="90" y="206" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#3C3489">Rate automation</text>
+        <text x="90" y="222" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#3C3489">value per use case</text>
+
+        <rect x="174" y="150" width="140" height="90" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8" stroke-opacity="0.6"/>
+        <text x="244" y="168" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#534AB7">06</text>
+        <text x="244" y="187" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#26215C">Effort Estimation</text>
+        <text x="244" y="206" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#3C3489">Assess technical</text>
+        <text x="244" y="222" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#3C3489">feasibility per case</text>
+
+        <rect x="328" y="150" width="140" height="90" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8" stroke-opacity="0.6"/>
+        <text x="398" y="168" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#534AB7">07</text>
+        <text x="398" y="187" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#26215C">Priority Matrix</text>
+        <text x="398" y="206" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#3C3489">Map value vs effort</text>
+        <text x="398" y="222" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#3C3489">quick wins vs big bets</text>
+
+        <rect x="482" y="150" width="178" height="90" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8" stroke-opacity="0.6"/>
+        <text x="571" y="168" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#534AB7">08</text>
+        <text x="571" y="187" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#26215C">Selection and</text>
+        <text x="571" y="202" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#26215C">Scoping</text>
+        <text x="571" y="222" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="10" fill="#3C3489">Top 2 use cases</text>
+
+        <line x1="90"  y1="241" x2="90"  y2="262" stroke="#534AB7" stroke-width="0.8" opacity="0.3" marker-end="url(#arr)"/>
+        <line x1="244" y1="241" x2="244" y2="262" stroke="#534AB7" stroke-width="0.8" opacity="0.3" marker-end="url(#arr)"/>
+        <line x1="398" y1="241" x2="398" y2="262" stroke="#534AB7" stroke-width="0.8" opacity="0.3" marker-end="url(#arr)"/>
+        <line x1="571" y1="241" x2="571" y2="262" stroke="#534AB7" stroke-width="0.8" opacity="0.3" marker-end="url(#arr)"/>
+
+        <rect x="20" y="264" width="640" height="36" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.8" stroke-opacity="0.5"/>
+        <text x="340" y="282" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#412402">Deliverables: AI readiness assessment · Use case matrix · Prioritized roadmap · Two fully scoped use cases</text>
+        <text x="340" y="308" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">Peak Trails does the work — you participate in focused review sessions and receive a complete set of deliverables</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section id="how">
+  <div class="section-inner">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-title">Two phases. Eight steps.<br><em>One clear output.</em></h2>
+    <p class="section-sub">The discovery process runs in two distinct phases — first we understand what you have, then we decide what to do with it.</p>
+
+    <div class="how-grid">
+      <div class="how-phase">
+        <div class="phase-label discovery">Phase 1 — Discovery</div>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num t">01</div>
+            <div class="step-content">
+              <h4>Discovery and Education</h4>
+              <p>We align your stakeholders on what AI can actually do — the practical reality, not the marketing version. Everyone leaves speaking the same language.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num t">02</div>
+            <div class="step-content">
+              <h4>Asset Inventory</h4>
+              <p>We catalog every internal platform, data source, and system your organization runs. You cannot identify the right opportunities without knowing what ingredients you have.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num t">03</div>
+            <div class="step-content">
+              <h4>Support Mapping</h4>
+              <p>We document who is currently answering questions manually — IT staff, call center agents, coordinators. These are the roles where AI delivers the fastest return.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num t">04</div>
+            <div class="step-content">
+              <h4>Use Case Analysis</h4>
+              <p>We log the frequent data requests across your organization — who is asking, how often, how long it takes. These are the opportunities hiding in plain sight.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="how-phase">
+        <div class="phase-label priority">Phase 2 — Prioritization</div>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num p">05</div>
+            <div class="step-content">
+              <h4>Value Scoring</h4>
+              <p>We rate each use case against a consistent framework — cost reduction, time savings, staff relief, constituent experience. Every use case gets an objective score.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num p">06</div>
+            <div class="step-content">
+              <h4>Effort Estimation</h4>
+              <p>We assess technical feasibility and level of effort for each use case — data readiness, integration complexity, build requirements. Realistic estimates, not optimistic ones.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num p">07</div>
+            <div class="step-content">
+              <h4>Priority Matrix</h4>
+              <p>We map every use case on a value versus effort grid. Quick wins rise to the top. Big bets get flagged for future planning. Your leadership team can align around it immediately.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num p">08</div>
+            <div class="step-content">
+              <h4>Selection and Scoping</h4>
+              <p>We select the top two use cases and build a detailed scope — timeline, level of effort, resource requirements, and integration dependencies. Ready for immediate execution.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MATRIX ── -->
+<section id="matrix">
+  <div class="section-inner">
+    <div class="section-eyebrow">Sample Output</div>
+    <h2 class="section-title">What a real <em>priority matrix</em> looks like</h2>
+    <p class="section-sub">Every use case scored and plotted — value on one axis, level of effort on the other. Your leadership team sees exactly where to invest first.</p>
+
+    <div class="matrix-intro">
+      <div>
+        <p style="font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:24px;">The matrix below reflects the output of a real discovery engagement. Each bubble represents a cluster of use cases that scored at that value and effort combination — larger bubbles mean more use cases at that score.</p>
+        <ul class="deliverables-list">
+          <li class="deliverable-item">
+            <div class="del-check">✓</div>
+            <div><strong>AI Readiness Assessment</strong> <span>— baseline snapshot of your organization's current state</span></div>
+          </li>
+          <li class="deliverable-item">
+            <div class="del-check">✓</div>
+            <div><strong>Use Case Matrix</strong> <span>— every identified opportunity scored by value and effort</span></div>
+          </li>
+          <li class="deliverable-item">
+            <div class="del-check">✓</div>
+            <div><strong>Prioritized Roadmap</strong> <span>— sequenced plan organized by quick wins and big bets</span></div>
+          </li>
+          <li class="deliverable-item">
+            <div class="del-check">✓</div>
+            <div><strong>Two Fully Scoped Use Cases</strong> <span>— detailed timeline, level of effort, and integration requirements</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="engagement-box">
+        <h4>What the engagement looks like</h4>
+        <p>We do the analysis. You participate in focused review sessions — typically two to four touchpoints over a few weeks — and receive a complete set of deliverables.</p>
+        <div class="engagement-detail">
+          <span>⏱</span>
+          <span><strong>Duration:</strong> 2–4 weeks from kickoff to final deliverables</span>
+        </div>
+        <div class="engagement-detail">
+          <span>👥</span>
+          <span><strong>Your time:</strong> 2–4 focused review sessions</span>
+        </div>
+        <div class="engagement-detail">
+          <span>📦</span>
+          <span><strong>Output:</strong> Four deliverable documents plus the priority matrix</span>
+        </div>
+        <div class="engagement-detail">
+          <span>🎯</span>
+          <span><strong>Result:</strong> Two use cases fully scoped and ready to build</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="graphic-wrap">
+      <svg width="100%" viewBox="0 0 680 500" xmlns="http://www.w3.org/2000/svg">
+        <text x="310" y="20" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="14" font-weight="600" fill="#1A2B2A">Use Case Priority Matrix</text>
+        <text x="310" y="40" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">Bubble size indicates number of use cases at that value / effort score</text>
+
+        <rect x="80" y="60" width="200" height="216" fill="#1D9E75" fill-opacity="0.08"/>
+        <rect x="280" y="60" width="300" height="216" fill="#534AB7" fill-opacity="0.08"/>
+        <rect x="80" y="276" width="200" height="144" fill="#1D9E75" fill-opacity="0.03"/>
+        <rect x="280" y="276" width="300" height="144" fill="#534AB7" fill-opacity="0.03"/>
+
+        <line x1="180" y1="60"  x2="180" y2="420" stroke="#CCCCCC" stroke-width="0.5"/>
+        <line x1="280" y1="60"  x2="280" y2="420" stroke="#1A2B2A" stroke-width="1" opacity="0.2"/>
+        <line x1="380" y1="60"  x2="380" y2="420" stroke="#CCCCCC" stroke-width="0.5"/>
+        <line x1="480" y1="60"  x2="480" y2="420" stroke="#CCCCCC" stroke-width="0.5"/>
+        <line x1="80"  y1="132" x2="580" y2="132" stroke="#CCCCCC" stroke-width="0.5"/>
+        <line x1="80"  y1="204" x2="580" y2="204" stroke="#CCCCCC" stroke-width="0.5"/>
+        <line x1="80"  y1="276" x2="580" y2="276" stroke="#1A2B2A" stroke-width="1" opacity="0.2"/>
+        <line x1="80"  y1="348" x2="580" y2="348" stroke="#CCCCCC" stroke-width="0.5"/>
+        <rect x="80" y="60" width="500" height="360" fill="none" stroke="#AAAAAA" stroke-width="1"/>
+
+        <text x="92"  y="72" text-anchor="start" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#085041" opacity="0.6">Quick Wins</text>
+        <text x="292" y="72" text-anchor="start" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#3C3489" opacity="0.6">Big Bets</text>
+
+        <text x="62" y="96"  text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">5</text>
+        <text x="62" y="168" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">4</text>
+        <text x="62" y="240" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">3</text>
+        <text x="62" y="312" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">2</text>
+        <text x="62" y="384" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">1</text>
+        <text transform="translate(22,240) rotate(-90)" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#1A2B2A">Value</text>
+
+        <text x="130" y="438" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">1</text>
+        <text x="230" y="438" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">2</text>
+        <text x="330" y="438" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">3</text>
+        <text x="430" y="438" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">4</text>
+        <text x="530" y="438" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">5</text>
+        <text x="330" y="458" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#1A2B2A">Level of Effort</text>
+
+        <circle cx="130" cy="168" r="6"  fill="#1D9E75" fill-opacity="0.3"  stroke="#1D9E75" stroke-width="1"/>
+        <circle cx="130" cy="240" r="6"  fill="#1D9E75" fill-opacity="0.3"  stroke="#1D9E75" stroke-width="1"/>
+        <circle cx="230" cy="96"  r="6"  fill="#1D9E75" fill-opacity="0.3"  stroke="#1D9E75" stroke-width="1"/>
+        <circle cx="230" cy="168" r="20" fill="#1D9E75" fill-opacity="0.25" stroke="#1D9E75" stroke-width="1.2"/>
+        <circle cx="230" cy="240" r="6"  fill="#1D9E75" fill-opacity="0.3"  stroke="#1D9E75" stroke-width="1"/>
+        <circle cx="230" cy="312" r="6"  fill="#5DCAA5" fill-opacity="0.3"  stroke="#5DCAA5" stroke-width="1"/>
+        <circle cx="330" cy="96"  r="10" fill="#534AB7" fill-opacity="0.25" stroke="#534AB7" stroke-width="1"/>
+        <circle cx="330" cy="168" r="22" fill="#534AB7" fill-opacity="0.22" stroke="#534AB7" stroke-width="1.2"/>
+        <circle cx="330" cy="240" r="10" fill="#534AB7" fill-opacity="0.22" stroke="#534AB7" stroke-width="1"/>
+        <circle cx="330" cy="312" r="6"  fill="#7C4DFF" fill-opacity="0.20" stroke="#7C4DFF" stroke-width="1"/>
+        <circle cx="430" cy="96"  r="12" fill="#534AB7" fill-opacity="0.25" stroke="#534AB7" stroke-width="1"/>
+        <circle cx="430" cy="168" r="18" fill="#534AB7" fill-opacity="0.22" stroke="#534AB7" stroke-width="1.2"/>
+        <circle cx="430" cy="240" r="12" fill="#7C4DFF" fill-opacity="0.20" stroke="#7C4DFF" stroke-width="1"/>
+        <circle cx="430" cy="312" r="6"  fill="#7C4DFF" fill-opacity="0.18" stroke="#7C4DFF" stroke-width="1"/>
+        <circle cx="530" cy="96"  r="8"  fill="#534AB7" fill-opacity="0.22" stroke="#534AB7" stroke-width="1"/>
+        <circle cx="530" cy="168" r="8"  fill="#7C4DFF" fill-opacity="0.20" stroke="#7C4DFF" stroke-width="1"/>
+        <circle cx="530" cy="240" r="8"  fill="#7C4DFF" fill-opacity="0.18" stroke="#7C4DFF" stroke-width="1"/>
+        <circle cx="530" cy="312" r="6"  fill="#7C4DFF" fill-opacity="0.16" stroke="#7C4DFF" stroke-width="1"/>
+
+        <text x="80"  y="480" text-anchor="start" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#1A2B2A">Use cases per score:</text>
+        <circle cx="222" cy="480" r="5"  fill="#6B7C7B" fill-opacity="0.35" stroke="#6B7C7B" stroke-width="1"/>
+        <text x="232" y="480" text-anchor="start" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">Few</text>
+        <circle cx="278" cy="480" r="10" fill="#6B7C7B" fill-opacity="0.35" stroke="#6B7C7B" stroke-width="1"/>
+        <text x="293" y="480" text-anchor="start" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">Moderate</text>
+        <circle cx="375" cy="480" r="16" fill="#6B7C7B" fill-opacity="0.35" stroke="#6B7C7B" stroke-width="1"/>
+        <text x="396" y="480" text-anchor="start" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">Many</text>
+        <circle cx="450" cy="480" r="22" fill="#6B7C7B" fill-opacity="0.35" stroke="#6B7C7B" stroke-width="1"/>
+        <text x="477" y="480" text-anchor="start" dominant-baseline="central" font-family="Arial,sans-serif" font-size="11" fill="#6B7C7B">Most</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta">
+  <div class="cta-bg-img"></div>
+  <div class="cta-bg-overlay"></div>
+  <div class="cta-inner">
+    <h2>Ready to find out what AI<br>can do for your organization?</h2>
+    <p>The discovery process starts with a 30-minute conversation. We will tell you honestly whether your organization is ready and what the engagement looks like.</p>
+    <a href="../contactus/" class="btn-primary">Schedule a Conversation →</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-stripe"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/ptc-logo-white.png" alt="Peak Trails Consulting">
+      <p>Google Cloud Partner helping SLED organizations activate Gemini Enterprise — from foundation to full capability.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../geminijourney/">Gemini Journey</a></li>
+        <li><a href="../discovery/">Discovery &amp; Roadmap</a></li>
+        <li><a href="../agenticframework/">Agent Solutions</a></li>
+        <li><a href="../ourpartners/">Our Partners</a></li>
+        <li><a href="../peakinsights/">Peak Insights</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:info@peaktrailsconsulting.com">info@peaktrailsconsulting.com</a></li>
+        <li><a href="../contactus/">Schedule a Conversation</a></li>
+        <li><span style="color:rgba(255,255,255,.35);">Denver, CO</span></li>
+        <li>
+          <a href="https://www.linkedin.com/company/peak-trails-consulting-llc" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;">
+            <img src="../assets/linedin.png" alt="LinkedIn" style="height:20px;filter:brightness(0) invert(1);opacity:.6;">
+            <span>LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Peak Trails Consulting LLC · Google Cloud Partner · © 2026</span>
+    <span>Denver, CO · SLED AI Specialist</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      en.target.style.opacity = '1';
+      en.target.style.transform = 'translateY(0)';
+      obs.unobserve(en.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.step-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity .4s ease, transform .4s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</>
